@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | [Challenge Name Here]</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+
+      .title {
+        color: #444875;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .container {
+        background-color: #f8f8ff;
+        width: 100%;
+        min-height: 100vh;
+        background: url("images/bg-top.svg") no-repeat top right,
+          url("images/bg-bottom.svg") no-repeat bottom left;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .container-outline {
+        background-color: #f8f8ff;
+        margin: 0 auto;
+      }
+
+      .card-container {
+        display: flex;
+        gap: 24px;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+
+      .cards {
+        background: white;
+        box-shadow: 0 2px 2px 0 #444875;
+        border-radius: 10px;
+        padding: 32px;
+        width: 200px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .cards:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 24px rgba(68, 72, 117, 0.3);
+      }
+
+      .cards.active {
+        background: rgba(108, 99, 255, 0.1);
+        box-shadow: 0 6px 20px rgba(108, 99, 255, 0.2);
+      }
+
+      .cards-title {
+        text-align: center;
+      }
+
+      .annually,
+      .monthly {
+        margin-bottom: 12px;
+        display: inline-block;
+        border: none;
+        background: none;
+        font-size: 16px;
+        color: #444875;
+      }
+
+      .price1,
+      .price2,
+      .price3 {
+        display: flex;
+        justify-content: center;
+        font-size: 60px;
+        color: #9aa0b3;
+      }
+
+      .annually:hover,
+      .monthly:hover {
+        transform: scale(1.1);
+        transition: all 0.3 ease;
+        cursor: pointer;
+      }
+
+      .choice {
+        text-align: center;
+      }
+
+      .cards-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .cards-list li {
+        margin-top: 32px;
+        text-align: center;
+        color: #6f6f88;
+        font-size: 18px;
+        position: relative;
+      }
+
+      .cards-list li::before {
+        content: "";
+        position: absolute;
+        left: 2%;
+        top: -58%;
+        transform: translateY(-50%);
+        width: 100%;
+        height: 1px;
+        background-color: #ccc;
+      }
+
+      .cards-title {
+        color: #6f6f88;
+        font-size: 14px;
+      }
+
+      .more {
+        background-color: #6c63ff;
+        font-size: 16px;
+        letter-spacing: 2px;
+        margin-top: 24px;
+        display: block;
+        padding: 12px;
+        border: 1px solid #6c63ff;
+        border-radius: 4px;
+        color: #f8f8ff;
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container-outline">
+      <div class="container">
+        <div>
+          <h1 class="title">Our Pricing</h1>
+          <div class="choice">
+            <button class="annually">Annually</button>
+            <button class="monthly">Monthly</button>
+          </div>
+        </div>
+
+        <div class="card-container">
+          <div class="cards">
+            <h2 class="cards-title">Basic</h2>
+            <span class="price1">&dollar;19.99</span>
+            <ul class="cards-list">
+              <li>500 GB Storage</li>
+              <li>2 Users Allowed</li>
+              <li>Send up to 3 GB</li>
+            </ul>
+            <span class="more">Learn More</span>
+          </div>
+
+          <div class="cards">
+            <h2 class="cards-title">Professional</h2>
+            <span class="price2">&dollar;24.99</span>
+            <ul class="cards-list">
+              <li>1 TB Storage</li>
+              <li>5 Users Allowed</li>
+              <li>Send up to 10 GB</li>
+            </ul>
+            <span class="more">Learn More</span>
+          </div>
+
+          <div class="cards">
+            <h2 class="cards-title">Master</h2>
+            <span class="price3">&dollar;39.99</span>
+            <ul class="cards-list">
+              <li>2 TB Storage</li>
+              <li>10 Users Allowed</li>
+              <li>Send up to 20 GB</li>
+            </ul>
+            <span class="more">Learn More</span>
+          </div>
+        </div>
+
+        <div class="attribution">
+          Challenge by
+          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+            >Frontend Mentor</a
+          >. Coded by <a href="#">Tran Dinh Phong</a>.
+        </div>
+        <script src="script.js"></script>
+      </div>
+    </div>
+  </body>
+</html>

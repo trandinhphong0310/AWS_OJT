@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #blogs {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #blogs td,
+        #blogs th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        #blogs tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #blogs tr:hover {
+            background-color: #ddd;
+        }
+
+        #blogs th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+        }
+        
+        .form {
+            padding: 12px;
+        }
+
+        .form-item {
+            margin-bottom: 8px;
+        }
+
+        .form-input {
+            width: 200px;
+        }
+        
+        .form-label {
+            font-size: 24px;
+        }
+
+        .deleteBtn:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <div class="form-item">
+            <label for="" class="form-label">Title</label>
+            <input type="text" placeholder="title" id="title" class="form-input">
+        </div>
+        <div class="form-item">
+            <label for="" class="form-label">Author</label>
+            <input type="text" placeholder="title" id="author" class="form-input">
+        </div>
+        <div class="form-item">
+            <label for="" class="form-label">Content</label>
+            <input type="text" placeholder="title" id="content" class="form-input">
+        </div>
+        <button type="submit" id="submitBtn">Submit</button>
+    </div>
+    <div>
+        <h1>Table List Blogs</h1>
+
+        <table id="blogs">
+            <thead>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Content</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

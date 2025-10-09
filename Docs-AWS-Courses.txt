@@ -1,0 +1,8 @@
+VPC - Security Group
+ + Webserver security group : cho phép truy cập qua port 80
+ + Database security group : chỉ cho phép webserver truy cập qua port 3306
+VPC - Network access control list
+ + áp dụng NACL sẽ tác động lên subnet làm ảnh hưởng tới máy chủ ảo, db trong subnet
+VPC - VPC Peering
+ +  giúp các tài nguyên bên trong VPC kết nối với nhau mà ko cần thông qua internet
+ + VPC Peering ko có tính chất bắc cầu
