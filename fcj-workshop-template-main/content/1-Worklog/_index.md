@@ -14,9 +14,9 @@ Typically, and as a standard, a worklog is carried out over about 3 months (thro
 
 **Week 2:** [Achievements with AWS Networking and Resource Setup](1.2-week2/)
 
-**Week 3:** [Doing task B...](1.3-week3/)
+**Week 3:** [AWS Networking, Compute, and Storage Configuration](1.3-week3/)
 
-**Week 4:** [Doing task C...](1.4-week4/)
+**Week 4:** [AWS Hybrid Storage, Virtualization, and Performance Optimization](1.4-week4/)
 
 **Week 5:** [Doing task D...](1.5-week5/)
 
