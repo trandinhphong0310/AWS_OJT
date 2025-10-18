@@ -1,13 +1,12 @@
 import './App.scss';
-import MyComponent from './components/MyComponent';
+import Header from './components/Header/Header';
 import React from 'react';
 
 class App extends React.Component {
   render() {
     return (
       <>
-        <h1>Xin chao ae</h1>
-        <MyComponent />
+        <Header />
       </>
     );
   }
