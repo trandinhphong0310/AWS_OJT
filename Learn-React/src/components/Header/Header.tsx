@@ -9,17 +9,19 @@ export default function Header() {
         <header className="bg-black text-white shadow-md text-[16px]">
             <div className='max-w-6xl mx-auto flex justify-between items-center px-6 py-4'>
                 <div className='flex gap-5'>
-                    <span className='hover:text-gray-500 cursor-pointer'>Tran Dinh Phong</span>
+                    <span className='hover:text-gray-500 cursor-pointer'>
+                        <Link to="/">Tran Dinh Phong</Link>
+                    </span>
                     <ul className='flex gap-4 ml-8'>
-                        <li className='hover:text-gray-500 cursor-pointer'>
+                        <li className='active:text-gray-500 cursor-pointer'>
                             <Link to="/">Home</Link>
 
                         </li>
-                        <li className='hover:text-gray-500 cursor-pointer'>
+                        <li className='active:text-gray-500 cursor-pointer'>
                             <Link to="/users">User</Link>
 
                         </li>
-                        <li className='hover:text-gray-500 cursor-pointer'>
+                        <li className='active:text-gray-500 cursor-pointer'>
                             <Link to="/admins">Admin</Link>
 
                         </li>
