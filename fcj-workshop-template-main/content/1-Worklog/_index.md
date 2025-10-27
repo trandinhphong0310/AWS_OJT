@@ -18,7 +18,7 @@ Typically, and as a standard, a worklog is carried out over about 3 months (thro
 
 **Week 4:** [AWS Hybrid Storage, Virtualization, and Performance Optimization](1.4-week4/)
 
-**Week 5:** [Doing task D...](1.5-week5/)
+**Week 5:** [AWS Storage Management, CloudFront, and IAM Practices](1.5-week5/)
 
 **Week 6:** [Doing task E...](1.6-week6/)
 
