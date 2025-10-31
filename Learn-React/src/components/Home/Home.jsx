@@ -1,4 +1,3 @@
-import React from 'react'
 import videoHomePage from '../../assets/video-20251020-130204.mp4'
 
 export default function Home() {

@@ -1,57 +1,35 @@
 ---
 title: "Week 7 Worklog"
-date: "2025-09-09"
+date: "2025-10-19"
 weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 7 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Understand and practice AWS Identity and Access Management (IAM), including users, groups, roles, and policies.
+* Learn how to configure permissions and access control for secure resource management.
+* Implement AWS Key Management Service (KMS) for data encryption and test integration with S3.
+* Enable AWS CloudTrail for auditing activities and use Amazon Athena to query log data.
+* Explore EC2 instance creation and tagging, and manage instance policies through IAM.
+* Gain experience in applying security restrictions (by IP, time, and role switching) for IAM users.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Initiating access to EC2 console in AWS Region - Tokyo, North Virginia <br> - Proceed to create EC2 instance when there are no and qualified Tags <br> - Edit resource EC2 and check policy <br> - Create restriction policy                                                                                                  | 10/19/2025 | 10/19/2025      | <https://000030.awsstudygroup.com/> <br> <https://000028.awsstudygroup.com/> |
+| 3   | - Create IAM Limited user <br> - Test IAM User Limits <br> - Create Policy and Role <br> - Create Group and User <br> - Create KMS <br> - Create bucket <br> - Upload data to S3                                             | 10/20/2025 | 10/20/2025      | <https://000033.awsstudygroup.com/> |
+| 4   | - Create CloudTrail <br> - Logging to CloudTrail & Create Amazon Athena <br> - Retrieve data with Athena **Practice:** <br>&emsp; + Test and share encrypted data on S3 <br>&emsp; + Create IAM Group <br> &emsp; + Create IAM Users | 10/21/2025 | 10/21/2025      | <https://000044.awsstudygroup.com/> <br> <https://000033.awsstudygroup.com/> |
+| 5   | - Check permission <br>&emsp; + Create admin IAM role <br>&emsp; + Configure switch role <br>&emsp; + Limit switch role by IP <br>&emsp; + Limit switch role by time                            | 10/22/2025 | 10/22/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - **Practice:** <br>&emsp; + Create EC2 instance <br>&emsp; + Create S3 bucket <br>&emsp; + Generate IAM user and access key <br>&emsp; + Create IAM role and using IAM role                                                                                     | 10/23/2025 | 10/23/2025      | <https://000048.awsstudygroup.com/> |
 
 
 ### Week 7 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully created and configured an EC2 instance in multiple AWS Regions (Tokyo and North Virginia).
+* Set up IAM users, groups, and roles, applied custom policies, and verified permission restrictions.
+* Implemented KMS key creation and tested encryption with data uploaded to an S3 bucket.
+* Deployed and validated CloudTrail logging, connected it to Athena, and successfully queried activity logs.
+* Tested role-based access control (RBAC) by limiting switch roles through IP address and time-based conditions.
+* Enhanced understanding of AWS resource security, policy configuration, and compliance monitoring in a real cloud environment.

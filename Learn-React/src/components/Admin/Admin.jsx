@@ -1,4 +1,4 @@
-import React from 'react'
+import { Outlet } from 'react-router-dom'
 import SidebarTab from './SidebarTab'
 
 export default function Admin() {
@@ -8,7 +8,7 @@ export default function Admin() {
         <SidebarTab />
       </div>
       <div>
-        content go here
+        <Outlet />
       </div>
     </div>
   )

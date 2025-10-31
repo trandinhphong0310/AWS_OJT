@@ -6,121 +6,100 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
-
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# Summary Report: “AI-Driven Development Life Cycle”
 
 ### Event Objectives
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+- Explore AWS’s new AI-Driven Development Life Cycle (AI-DLC) methodology
+- Learn best practices for integrating Artificial Intelligence throughout software development
+- Understand how AI-powered tools can accelerate productivity and innovation
+- Promote collaboration between AI systems and human developers across all project phases
 
 ### Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Toan Huynh** – Instructor
+- **My Nguyen** – Instructor
 
 ### Key Highlights
 
-#### Identifying the drawbacks of legacy application architecture
+#### Understanding the AI-Driven Development Life Cycle
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+- AWS introduced **AI-DLC**, a framework that embeds AI into every stage of development:
+    - **Inception** → AI helps analyze business intent and generate user stories
+    - **Construction** → AI assists in coding, testing, and architecture design
+    - **Operations** → AI supports deployment and infrastructure management with    human oversight
 
-#### Transitioning to modern application architecture – Microservices
+#### AI as a Collaborative Partner
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+- Demonstrations showed how **AI agents** work alongside developers to plan, code, and test.
+- Highlighted the importance of **human-in-the-loop validation** to ensure quality and compliance.
+- Presented examples where AI significantly reduces repetitive tasks, enabling developers to focus on creative and strategic work. 
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+#### Tools and Technologies
 
-#### Domain-Driven Design (DDD)
+- **Amazon CodeWhisperer** and **Kiro IDE** showcased real-time AI coding assistance and intelligent debugging.
+- Introduced **AWS Transform Agents** for automated refactoring, modernization, and maintenance tasks.
+- Showcased integration with **serverless** and **container-based** environments for scalability and automation.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+#### AI Development Best Practices
 
-#### Event-Driven Architecture
-
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
-
-#### Compute Evolution
-
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
-
-#### Amazon Q Developer
-
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+- Emphasized **responsible AI adoption** with transparency and ethical guidelines.
+- Encouraged **a collaborative workflow** — where AI proposes solutions and humans refine them.
+- Discussed **agentic development models**, highlighting how AI maintains project context across stages.
 
 ### Key Takeaways
 
-#### Design Mindset
+#### Technical mindset
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+- Understand how to combine **AI automation** with **human creativity** for faster and smarter development.
+- Recognize the importance of **continuous feedback loops** and **context preservation** in AI-assisted workflows.
+- Learn how to design systems with **AI-native architectures**, enabling adaptability and long-term scalability.  
 
-#### Technical Architecture
+#### Practical Skills
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+- Experience using **AI-powered development tools** to refactor, test, and optimize code.
+- Learn how to evaluate when to apply **AI-driven**, **event-driven**, or **serverless** solutions.
+- Understand trade-offs between manual control and automated decision-making.  
 
-#### Modernization Strategy
+#### Professional Growth
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+- Strengthened collaboration, adaptability, and communication in **AI-augmented teams**.
+- Gained awareness of how to apply **AI lifecycle principles** to real-world projects for productivity improvement.
+- Enhanced understanding of the **future of software engineering** in an AI-driven era.
 
 ### Applying to Work
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- **Adopt AI-DLC principles** to streamline development workflows and improve automation.
+- **Integrate Amazon CodeWhisperer and Kiro IDE** into daily development tasks to boost coding efficiency.
+- **Collaborate effectively with AI agents** for planning, testing, and deployment while maintaining human validation.
+- **Encourage team adaptation** to AI-native practices and continuous learning in software projects.
+- **Experiment with AI-powered modernization tools** to refactor existing systems for better performance and maintainability. 
 
 ### Event Experience
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+Attending the **“AI-Driven Development Life Cycle”** event offered me valuable insights into how Artificial Intelligence can be integrated across the entire software development process — from planning and design to implementation and operations.
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+#### Learning from experts
+- AWS specialists shared real-world applications of **AI-driven workflows**, showing how AI can act as a proactive teammate rather than just a coding assistant.
+- The sessions demonstrated how **human oversight** remains essential while AI enhances speed, consistency, and scalability in development.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+#### Hands-on experience
+- Participated in live demos showcasing **AI-assisted code generation, refactoring, and testing** using AWS tools such as **CodeWhisperer** and **Kiro IDE**.
+- Observed how AI can automate repetitive tasks, suggest improvements, and maintain context throughout the development lifecycle. 
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+#### Modern development mindset
+- Learned about the **AI-Native Development approach**, emphasizing collaboration between AI and humans for more efficient project delivery.
+- Understood the **AI-Driven Development Life Cycle (AI-DLC)** framework — covering Inception, **Construction**, and **Operations** phases — and how it can reshape modern software engineering practices. 
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
-
+#### Networking and collaboration
+- Engaged in interactive discussions with AWS engineers and participants on adopting **AI agents** responsibly and effectively in team environments.
+- Exchanged ideas on integrating **AI-driven practices** into real-world projects and workflows.
 #### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+- AI can improve productivity and innovation when combined with human judgment and domain expertise.
+- Successful AI integration requires a balanced approach — automation with human validation.
+- The event reinforced the importance of adaptability, lifelong learning, and teamwork in an AI-augmented software development culture.  
 
 #### Some event photos
 *Add your event photos here*  
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+> Overall, the event deepened my understanding of how AI can transform the entire software development lifecycle, inspired me to explore AI-native methodologies, and strengthened my ability to collaborate effectively in AI-enhanced environments.

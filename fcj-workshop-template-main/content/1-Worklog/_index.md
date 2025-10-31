@@ -20,9 +20,9 @@ Typically, and as a standard, a worklog is carried out over about 3 months (thro
 
 **Week 5:** [AWS Storage Management, CloudFront, and IAM Practices](1.5-week5/)
 
-**Week 6:** [Doing task E...](1.6-week6/)
+**Week 6:** [AWS Identity, Security, and Automation Management](1.6-week6/)
 
-**Week 7:** [Doing task G...](1.7-week7/)
+**Week 7:** [Implementing IAM, KMS, and CloudTrail for Secure AWS Resource Management](1.7-week7/)
 
 **Week 8:** [Doing task H...](1.8-week8/)
 
