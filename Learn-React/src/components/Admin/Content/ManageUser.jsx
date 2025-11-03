@@ -1,10 +1,15 @@
-
 import ModalCreateUser from "./ModalCreateUser";
+import TableUser from "./TableUser";
 
 export default function ManageUser() {
   return (
     <div>
-      <ModalCreateUser />
+      <div>
+        <ModalCreateUser />
+      </div>
+      <div>
+        <TableUser />
+      </div>
     </div>
   );
 }

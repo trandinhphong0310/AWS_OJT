@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import SidebarTab from './SidebarTab'
-import { Bounce, ToastContainer, toast } from 'react-toastify'
+import { Bounce, ToastContainer } from 'react-toastify'
 import 'react-toastify/ReactToastify.css'
 
 export default function Admin() {
@@ -9,7 +9,7 @@ export default function Admin() {
       <div>
         <SidebarTab />
       </div>
-      <div>
+      <div className='w-full mx-auto container'>
         <Outlet />
       </div>
       
