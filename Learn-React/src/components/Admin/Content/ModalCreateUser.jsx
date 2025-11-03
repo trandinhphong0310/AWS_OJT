@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
+import { postCreateNewUser } from "../../Services/apiServices";
 
 export default function ModalCreateUser() {
     const [addUserModal, setAddUserModal] = useState(false);
@@ -6,15 +8,60 @@ export default function ModalCreateUser() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [image, setImage] = useState("")
-    const [role, setRole] = useState("User")
+    const [role, setRole] = useState("USER")
     const [previewImage, setPreviewImage] = useState("")
 
     const handleModal = () => {
         setAddUserModal(!addUserModal);
+        setEmail("");
+        setUsername("");
+        setPassword("");
+        setImage("");
+        setRole("USER");
     };
 
     const handleUploadImage = (event) => {
-        setPreviewImage(URL.createObjectURL(event.target.file[0]))
+        if (event.target && event.target.files && event.target.files[0]) {
+            setPreviewImage(URL.createObjectURL(event.target.files[0]))
+            setImage(event.target.files[0])
+        } else {
+            // setPreviewImage("")
+        }
+    }
+
+    const validateEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
+    };
+
+    const handleSubmitUser = async (event) => {
+        event.preventDefault()
+
+        const isValidate = validateEmail(email)
+
+        if(!isValidate) {
+            toast.error("invalid email")
+            return
+        }
+
+        if(!password) {
+            toast.error("invalid password")
+        }
+        
+        const data = await postCreateNewUser(email, password, username, role, image) 
+        console.log('>>> component res: ', data)
+        if(data && data.EC !== 0) {
+            toast.error(data.EM)
+            setAddUserModal(!addUserModal);
+        }
+
+        if(data && data.EC === 0) {
+            toast.success(data.EM)
+            setAddUserModal(!addUserModal);
+        }
     }
 
     return (
@@ -31,7 +78,7 @@ export default function ModalCreateUser() {
                     <div className="bg-white w-[500px] rounded-lg shadow-lg p-6">
                         <h1 className="text-2xl font-semibold mb-4">Add New User</h1>
 
-                        <form className="space-y-3">
+                        <form className="space-y-3" onSubmit={handleSubmitUser}>
                             <div>
                                 <label
                                     htmlFor="username"
@@ -92,8 +139,8 @@ export default function ModalCreateUser() {
                                     onChange={(event) => setRole(event.target.value)}
                                     className="w-full border border-gray-300 rounded-md p-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-200 outline-none"
                                 >
-                                    <option value="User">User</option>
-                                    <option value="Admin">Admin</option>
+                                    <option value="User">USER</option>
+                                    <option value="Admin">ADMIN</option>
                                 </select>
                             </div>
 
@@ -106,8 +153,7 @@ export default function ModalCreateUser() {
                                 </label>
                                 <input
                                     type="file"
-                                    value={image}
-                                    onChange={(event) => handleUploadImage(event.target.value)}
+                                    onChange={handleUploadImage}
                                     id="image"
                                     hidden
                                 />
