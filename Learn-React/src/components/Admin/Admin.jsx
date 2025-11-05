@@ -9,7 +9,7 @@ export default function Admin() {
       <div>
         <SidebarTab />
       </div>
-      <div className='w-full mx-auto container'>
+      <div className='mx-auto container'>
         <Outlet />
       </div>
       

@@ -1,20 +1,6 @@
-import { useEffect, useState } from 'react'
-import { getAllUsers } from '../../Services/apiServices'
+export default function TableUser(props) {
 
-export default function TableUser() {
-
-    const [listUser, setListUser] = useState([])
-
-    useEffect(() => {
-        fetchListUsers()
-    }, [])
-
-    const fetchListUsers = async () => {
-        const res = await getAllUsers()
-        if(res.EC === 0) {
-            setListUser(res.DT)
-        }
-    }
+    const { listUser, onUpdate } = props
 
     return (
         <div>
@@ -23,7 +9,7 @@ export default function TableUser() {
                     <thead className="text-xs uppercase border-b bg-gray-200">
                         <tr>
                             <th scope="col" className="px-6 py-3">
-                                No
+                                ID
                             </th>
                             <th scope="col" className="px-6 py-3">
                                 Username
@@ -34,14 +20,17 @@ export default function TableUser() {
                             <th scope="col" className="px-6 py-3">
                                 Role
                             </th>
+                            <th scope="col" className="px-6 py-3">
+                                Action
+                            </th>
                         </tr>
                     </thead>
                     <tbody>
-                        {listUser && listUser.length > 0 && listUser.map((item, index) => {
+                        {listUser && listUser.length > 0 && listUser.map((item) => {
                             return (
-                                <tr key={index} className='border-t hover:bg-gray-200 transition-all duration-75 ease-in-out cursor-pointer'>
+                                <tr key={item.id} className='border-t cursor-pointer'>
                                     <td className="px-6 py-4">
-                                        {index + 1}
+                                        {item.id}
                                     </td>
                                     <td className="px-6 py-4">
                                         {item.username}
@@ -51,6 +40,21 @@ export default function TableUser() {
                                     </td>
                                     <td className="px-6 py-4">
                                         {item.role}
+                                    </td>
+                                    <td className="">
+                                        <button
+                                            className="ml-2 px-2 py-1 rounded-lg bg-gray-200 hover:cursor-pointer transition-all ease-in-out duration-75 hover:opacity-75">
+                                            View
+                                        </button>
+                                        <button
+                                            onClick={() => onUpdate(item)}
+                                            className="ml-2 px-2 py-1 rounded-lg bg-blue-400 hover:cursor-pointer transition-all ease-in-out duration-75 hover:opacity-75">
+                                            Update
+                                        </button>
+                                        <button
+                                            className="ml-2 px-2 py-1 rounded-lg bg-red-400 hover:cursor-pointer transition-all ease-in-out duration-75 hover:opacity-75">
+                                            Delete
+                                        </button>
                                     </td>
                                 </tr>
                             )
