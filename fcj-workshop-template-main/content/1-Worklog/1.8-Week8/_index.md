@@ -8,46 +8,27 @@ pre: " <b> 1.8. </b> "
 
 ### Week 8 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Practice connecting to and managing EC2 instances using various methods (RDP Client, Fleet Manager, SSH).
+* Learn and configure database sources (SQL Server, Oracle) and perform schema conversion to Aurora MySQL.
+* Gain hands-on experience with AWS migration tools, including creating migration tasks, endpoints, and troubleshooting.
+* Understand and use AWS CLI for account, region, and resource management.
+* Explore backup, restore, and resource cleanup processes on AWS.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
 | 2   | - Learn database concept <br> - Learn Amazon RDS and Amazon Aurora                                                                                                   | 10/27/2025 | 10/27/2025      | 
 | 3   | - Learn about Redshift and elasticache <br>&emsp; **Practice:** <br>&emsp; + Create a VPC <br>&emsp; + Create EC2, RDS security group <br>&emsp; + Create DB subnet group <br>&emsp; + Create EC2 instance <br>&emsp; Create RDS database instance                                              | 10/28/2025 | 10/28/2025      | <https://000005.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 10/27/2025 | 10/27/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 10/27/2025 | 10/27/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 10/27/2025 | 10/27/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Deploy application <br> - Backup, restore & clean up resources <br> - **Practice:** <br>&emsp; + EC2 Connect Fleet Manager <br>&emsp; + EC2 Connect RDP Client <br>&emsp; + SQLSrv Src Config | 10/29/2025 | 10/29/2025      | <https://000043.awsstudygroup.com/> <br> <https://000005.awsstudygroup.com/>
+| 5   | - Oracle connect SrcDB <br>&emsp; + Oracle config SrcDB <br> - Drop constraint <br> - **Practice:** <br>&emsp; + MSSQL to aur MySQL target config <br>&emsp; + MSSQL to aur MySQL create project <br>&emsp; + MSSQL to aur MySQL SchemConv <br>&emsp; + Oracle2 MySQL Schema conversion 1 | 10/30/2025 | 10/30/2025      | <https://000043.awsstudygroup.com/> |
+| 6   | - **Practice:** <br>&emsp; + Create Mig Task And Endpoint <br>&emsp; + Inspect S3 <br>&emsp; + Create Severless Migration <br>&emsp; + Create event not <br>&emsp; + Logs <br>&emsp; + Troubleshoot Test Scenario Mem Pressure | 10/31/2025 | 10/31/2025      | <https://000043.awsstudygroup.com/> |
 
 
 ### Week 8 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Successfully created and configured an AWS Free Tier account.
-
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Successfully connected to EC2 instances using both RDP Client and Fleet Manager.
+* Configured SQL Server and Oracle as source databases, and set up Aurora MySQL as the migration target.
+* Completed schema conversion and migration projects from MSSQL/Oracle to Aurora MySQL, including troubleshooting and constraint management.
+* Practiced creating migration tasks, endpoints, and serverless migrations; monitored logs and events.
+* Used AWS CLI for resource management and verified account, region, and EC2 information.
+* Performed backup, restore, and cleanup of AWS resources as part of the migration workflow.

@@ -6,120 +6,104 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# Báo cáo sự kiện: “AI-Driven Development Life Cycle”
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+### Mục tiêu sự kiện
 
-### Mục Đích Của Sự Kiện
+- Khám phá phương pháp luận mới AI-Driven Development Life Cycle (AI-DLC) của AWS
+- Tìm hiểu best practices tích hợp AI vào toàn bộ quy trình phát triển phần mềm
+- Hiểu cách các công cụ AI giúp tăng tốc năng suất và đổi mới sáng tạo
+- Thúc đẩy hợp tác giữa hệ thống AI và lập trình viên trong mọi giai đoạn dự án
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+### Diễn giả
 
-### Danh Sách Diễn Giả
+- **Toan Huynh** – Giảng viên
+- **My Nguyen** – Giảng viên
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
 
-### Nội Dung Nổi Bật
+### Nội dung nổi bật
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+#### Tìm hiểu AI-Driven Development Life Cycle
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+- AWS giới thiệu **AI-DLC**, framework tích hợp AI vào mọi giai đoạn phát triển:
+	- **Inception** → AI phân tích yêu cầu nghiệp vụ, sinh user story
+	- **Construction** → AI hỗ trợ code, test, thiết kế kiến trúc
+	- **Operations** → AI hỗ trợ triển khai, quản lý hạ tầng với sự giám sát của con người
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+#### AI như một cộng sự
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+- Demo AI agent phối hợp cùng lập trình viên lên kế hoạch, code, test
+- Nhấn mạnh vai trò **human-in-the-loop** để đảm bảo chất lượng, tuân thủ
+- Ví dụ AI giảm tải tác vụ lặp lại, giúp dev tập trung sáng tạo và chiến lược
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+#### Công cụ và công nghệ
 
-#### Domain-Driven Design (DDD)
+- **Amazon CodeWhisperer** và **Kiro IDE**: AI hỗ trợ code, debug thông minh
+- **AWS Transform Agents**: Tự động refactor, hiện đại hóa, bảo trì
+- Tích hợp với môi trường **serverless** và **container** để mở rộng, tự động hóa
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+#### Best practices phát triển với AI
 
-#### Event-Driven Architecture
+- Nhấn mạnh **AI có trách nhiệm**: minh bạch, tuân thủ đạo đức
+- Khuyến khích workflow cộng tác: AI đề xuất, con người hoàn thiện
+- Mô hình phát triển agentic: AI giữ ngữ cảnh xuyên suốt các giai đoạn
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
 
-#### Compute Evolution
+### Bài học rút ra
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+#### Tư duy kỹ thuật
 
-#### Amazon Q Developer
+- Hiểu cách kết hợp **AI tự động hóa** với **sáng tạo con người** để phát triển nhanh, thông minh hơn
+- Nhận ra tầm quan trọng của **feedback liên tục** và **giữ ngữ cảnh** trong workflow có AI hỗ trợ
+- Biết cách thiết kế hệ thống **AI-native** để thích ứng và mở rộng lâu dài
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+#### Kỹ năng thực tiễn
 
-### Những Gì Học Được
+- Trải nghiệm sử dụng công cụ AI để refactor, test, tối ưu code
+- Biết đánh giá khi nào nên dùng giải pháp **AI-driven**, **event-driven** hay **serverless**
+- Hiểu sự đánh đổi giữa kiểm soát thủ công và tự động hóa
 
-#### Tư Duy Thiết Kế
+#### Phát triển chuyên môn
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+- Tăng cường kỹ năng hợp tác, thích nghi, giao tiếp trong team có AI hỗ trợ
+- Nhận thức cách áp dụng nguyên lý AI lifecycle vào dự án thực tế để tăng năng suất
+- Hiểu sâu hơn về tương lai ngành phần mềm trong kỷ nguyên AI
 
-#### Kiến Trúc Kỹ Thuật
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+### Ứng dụng vào công việc
 
-#### Chiến Lược Hiện Đại Hóa
+- **Áp dụng nguyên lý AI-DLC** để tối ưu workflow phát triển, tăng tự động hóa
+- **Tích hợp Amazon CodeWhisperer và Kiro IDE** vào công việc hàng ngày để tăng hiệu suất code
+- **Cộng tác hiệu quả với AI agent** trong lập kế hoạch, test, triển khai, luôn đảm bảo kiểm duyệt của con người
+- **Khuyến khích team thích nghi** với thực hành AI-native và học hỏi liên tục
+- **Thử nghiệm công cụ AI hiện đại hóa** để refactor hệ thống, tăng hiệu năng và khả năng bảo trì
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
 
-### Ứng Dụng Vào Công Việc
+### Trải nghiệm sự kiện
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+Tham dự sự kiện **“AI-Driven Development Life Cycle”** giúp tôi hiểu sâu về cách AI tích hợp vào toàn bộ quy trình phát triển phần mềm – từ lên kế hoạch, thiết kế đến triển khai, vận hành.
 
-### Trải nghiệm trong event
+#### Học hỏi từ chuyên gia
+- Chuyên gia AWS chia sẻ ứng dụng thực tế của workflow AI-driven, cho thấy AI là cộng sự chủ động chứ không chỉ là trợ lý code
+- Các phiên trình bày nhấn mạnh vai trò kiểm duyệt của con người, đồng thời AI giúp tăng tốc, nhất quán và mở rộng quy mô phát triển
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
+#### Trải nghiệm thực tế
+- Tham gia demo trực tiếp về AI hỗ trợ sinh code, refactor, test với CodeWhisperer, Kiro IDE
+- Quan sát AI tự động hóa tác vụ lặp lại, đề xuất cải tiến, giữ ngữ cảnh xuyên suốt lifecycle
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
+#### Tư duy phát triển hiện đại
+- Tìm hiểu phương pháp **AI-Native Development**, nhấn mạnh hợp tác AI – con người để tăng hiệu quả dự án
+- Hiểu rõ framework **AI-Driven Development Life Cycle (AI-DLC)** gồm các pha Inception, Construction, Operations và tác động đến thực tiễn phát triển phần mềm hiện đại
 
 #### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
+- Thảo luận cùng chuyên gia AWS và các thành viên về ứng dụng AI agent hiệu quả, có trách nhiệm trong môi trường teamwork
+- Chia sẻ ý tưởng tích hợp AI-driven vào dự án thực tế
 
 #### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
+- AI giúp tăng năng suất, đổi mới khi kết hợp với chuyên môn và phán đoán con người
+- Tích hợp AI thành công cần cân bằng giữa tự động hóa và kiểm duyệt thủ công
+- Sự kiện nhấn mạnh tầm quan trọng của thích nghi, học hỏi liên tục và teamwork trong môi trường phát triển phần mềm có AI hỗ trợ
 
 #### Một số hình ảnh khi tham gia sự kiện
 * Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+> Tổng thể, sự kiện giúp tôi hiểu sâu hơn về cách AI có thể thay đổi toàn bộ lifecycle phát triển phần mềm, truyền cảm hứng khám phá phương pháp AI-native và tăng khả năng phối hợp hiệu quả trong môi trường có AI.

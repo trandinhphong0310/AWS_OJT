@@ -5,55 +5,30 @@ weight: 1
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 4:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu và thực hành sử dụng AWS Snow Family, Storage Gateway, Backup cho môi trường hybrid cloud.
+* Tìm hiểu các nhóm dịch vụ AWS: Compute, Storage, Networking, Database.
+* Trải nghiệm import/export máy ảo (VM) lên/xuống AWS.
+* Thực hành mount, quản lý file share trên hệ thống on-premises với Amazon FSx, EFS.
+* Khám phá các kỹ thuật tối ưu hiệu năng lưu trữ: deduplication, shadow copy, throughput scaling.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc                                                                                                                        | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                        |
+| --- | ------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ------------------------------------- |
+| 2   | - Tìm hiểu Snow Family, Storage Gateway, Backup <br> **Thực hành:** <br>&emsp; + Tạo S3 Bucket <br>&emsp; + Triển khai hạ tầng <br>&emsp; + Tạo backup plan <br>&emsp; + Thiết lập notification | 28/09/2025   | 28/09/2025      | <https://000013.awsstudygroup.com/> |
+| 3   | - Tìm hiểu các nhóm dịch vụ AWS: Compute, Storage, Networking, Database, ...                                                    | 29/09/2025   | 29/09/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - **Thực hành:** <br>&emsp; + Import VM lên AWS <br>&emsp; + Deploy instance từ AMI <br>&emsp; + Thiết lập S3 bucket ACL <br>&emsp; + Export VM từ Instance <br>&emsp; + Cleanup resource | 30/09/2025   | 30/09/2025      | <https://000014.awsstudygroup.com/> |
+| 5   | - Mount file share trên máy on-premises: <br>&emsp; + Tạo SSD Multi-AZ file system <br>&emsp; + Tạo HDD Multi-AZ file system <br>&emsp; + Tạo file share mới <br>&emsp; + Test hiệu năng | 01/10/2025   | 01/10/2025      | <https://000025.awsstudygroup.com/> <br> <https://000024.awsstudygroup.com/> |
+| 6   | - Monitor hiệu năng <br>&emsp; + Bật deduplication <br>&emsp; + Bật shadow copy <br>&emsp; + Bật user store quota <br>&emsp; + Scale throughput capacity | 02/10/2025   | 02/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 4:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Tạo S3 bucket, triển khai backup plan, cấu hình notification bảo vệ dữ liệu.
+* Ôn tập, hiểu rõ các nhóm dịch vụ AWS và ứng dụng thực tế trong cloud infrastructure.
+* Thực hành import/export VM, cấu hình S3 ACL, cleanup resource trên AWS.
+* Thiết lập file system Multi-AZ (SSD & HDD), mount file share on-premises, test hiệu năng hệ thống.
+* Áp dụng deduplication, shadow copy, user quota để tối ưu lưu trữ và giám sát hiệu quả.
 
 

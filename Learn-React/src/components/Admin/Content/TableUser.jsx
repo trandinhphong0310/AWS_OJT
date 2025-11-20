@@ -1,6 +1,6 @@
 export default function TableUser(props) {
 
-    const { listUser, onUpdate } = props
+    const { listUser, onUpdate, onView, onDelete } = props
 
     return (
         <div>
@@ -43,6 +43,7 @@ export default function TableUser(props) {
                                     </td>
                                     <td className="">
                                         <button
+                                            onClick={() => onView(item)}
                                             className="ml-2 px-2 py-1 rounded-lg bg-gray-200 hover:cursor-pointer transition-all ease-in-out duration-75 hover:opacity-75">
                                             View
                                         </button>
@@ -52,6 +53,7 @@ export default function TableUser(props) {
                                             Update
                                         </button>
                                         <button
+                                            onClick={() => onDelete(item)}
                                             className="ml-2 px-2 py-1 rounded-lg bg-red-400 hover:cursor-pointer transition-all ease-in-out duration-75 hover:opacity-75">
                                             Delete
                                         </button>

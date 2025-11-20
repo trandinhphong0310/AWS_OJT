@@ -5,62 +5,35 @@ weight: 1
 chapter: false
 pre: " <b> 3.3. </b> "
 ---
+# Tối đa hóa giá trị kinh doanh với quy trình lập kế hoạch nhu cầu của AWS Supply Chain
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+Trong bối cảnh chuỗi cung ứng toàn cầu ngày nay, dự báo chính xác là quan trọng - nhưng chỉ vậy thôi thì vẫn chưa đủ. Các tổ chức đầu tư vào việc xây dựng kỹ năng phân tích nâng cao và Machine Learning (ML) để cải thiện độ chính xác của dự báo và thúc đẩy quản lý hàng tồn kho tối ưu. Mặc dù đã có những nỗ lực to lớn này, tỉ lệ hàng tồn kho đã tăng lên từ năm 2021, điều này phản ánh các tổ chức dự trữ quá mức cho biến động cung và cầu. Sự thật này cho thấy thiếu liên kết giữa cải thiện dự báo và đạt đc giá trị kinh doanh hữu hình.
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+Trong thời kỳ gián đoạn chuỗi cung ứng cao, sự hợp tác và chuyên môn kinh doanh thậm chí trở nên quan trọng hơn. Nếu không có sự giao tiếp hiệu quả giữa các stakeholder, ngay cả những dự báo tinh vi nhất cũng sẽ trở nên lỗi thời, giảm dần giá trị kinh doanh và khiến các tổ chức dễ bị thay đổi thị trường nhanh chóng.
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
-
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
+Chìa khóa để mở khóa giá trị chuỗi cung ứng thực sự là việc kết hợp dự báo tiên tiến với sự hợp tác của các stakeholder hiệu quả. Bài viết này khám phá các giải pháp đổi mới của AWS Supply Chain giúp các tổ chức không chỉ tận dụng Machine Learning (ML) để tạo ra các dự báo chất lượng cao, mà còn thúc đẩy sự hợp tác hiệu quả, nắm bắt những thông tin kinh doanh quan trọng nhằm xây dựng kế hoạch nhu cầu thực sự trong mọi điều kiện thị trường.
 
 ---
 
-## Hướng dẫn kiến trúc
+## Xây dựng nhu cầu kế hoạch giá trị cao
 
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
+Lập kế hoạch nhu cầu truyền thống là quá trình single-step, chỉ tập trung vào việc tạo ra dự báo chính xác nhất có thể bằng cách sử dụng dữ liệu lịch sử. Trong một môi trường năng động cao như ngày nay, quá trình đó làm thành công bị hạn chế, các sự kiện trong quá khứ không có cùng tác động trong tương lai và ý kiến của chuyên gia cũng rất quan trọng.
 
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
+AWS Supply Chain nhận ra rằng lập kế hoạch nhu cầu cao thực sự cần tới cách tiếp cận two-step.
 
-**Kiến trúc giải pháp bây giờ như sau:**
+**Bước 1: Xây dựng dự báo cơ sở mạnh mẽ bằng ML**
 
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Ở bước đầu tiên, các nhà lập kế hoạch nhu cầu sử dụng khả năng phân tích nâng cao và học máy (ML) của AWS Supply Chain để tạo ra bản dự báo cơ bản. Công cụ phân tích mô hình dự báo sẽ chạy trên dữ liệu của tổ chức và giúp họ chọn mô hình ML phù hợp nhất, có tính đến các yếu tố bên ngoài và sự thay đổi của sản phẩm để tăng độ chính xác ban đầu.
 
----
+Ví dụ, thuật toán DeepAR+ có thể làm việc với các tập dữ liệu lớn chứa hàng trăm chuỗi thời gian và cho phép sử dụng thêm dữ liệu liên quan trong tương lai cũng như thông tin mô tả về sản phẩm để tạo ra kết quả dự báo.
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+![Hình 1](/images/DP-process-blog-image-1.png)
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+**Bước 2: Thúc đẩy sự hợp tác của stakeholder để xây dựng kế hoạch nhu cầu dựa trên sự đồng thuận**
 
----
+Bước thứ hai, bước chủ yếu liên quan đến sàng lọc hợp tác. Các nhà hoạch định dùng trải nghiệm trực quan của người dùng của AWS Supply Chain để chia sẻ dự báo cơ bản với stakeholders, thu thập thông tin chi tiết và nắm bắt các giả định kinh doanh quan trọng. Quá trình này cho phép ghi đè và điều chỉnh cần thiết, đảm bảo kế hoạch cuối cùng phản ánh quan điểm toàn diện, phù hợp với doanh nghiệp.
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
-
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
-
----
-
-## The pub/sub hub
-
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
-
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+![Hình 2](/images/DP-process-blog-image-2.png)
 
 ---
 

@@ -10,7 +10,7 @@ export default function ModalCreateUser(props) {
     const [role, setRole] = useState("USER");
     const [previewImage, setPreviewImage] = useState("");
 
-    const { show, onClose, fetchListUsers } = props;
+    const { show, onClose, setCurrentPage, fetchListUsersWithPaginate } = props;
 
     const handleModal = () => {
         onClose();
@@ -60,7 +60,8 @@ export default function ModalCreateUser(props) {
         if (data && data.EC === 0) {
             toast.success(data.EM);
             onClose();
-            await fetchListUsers();
+            await fetchListUsersWithPaginate(1)
+            setCurrentPage(1)
         }
     };
 
@@ -160,7 +161,7 @@ export default function ModalCreateUser(props) {
                                 <img
                                     src={previewImage}
                                     alt="preview"
-                                    className="w-full h-full object-cover rounded"
+                                    className="w-full h-full object-contain"
                                 />
                             ) : (
                                 <label className="block font-medium text-gray-700 cursor-pointer">

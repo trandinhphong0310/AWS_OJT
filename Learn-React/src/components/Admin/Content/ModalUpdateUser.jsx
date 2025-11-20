@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { postCreateNewUser } from "../../Services/apiServices";
+import { putUpdateUser } from "../../Services/apiServices";
+import _ from "lodash";
 
 export default function ModalUpdateUser(props) {
     const [email, setEmail] = useState("")
@@ -10,7 +11,20 @@ export default function ModalUpdateUser(props) {
     const [role, setRole] = useState("USER")
     const [previewImage, setPreviewImage] = useState("")
 
-    const { onClose, dataUpdate, show } = props
+    const { onClose, dataUpdate, show, currentPage,
+        fetchListUsersWithPaginate } = props
+
+    useEffect(() => {
+        if(!_.isEmpty(dataUpdate)) {
+            setEmail(dataUpdate.email)
+            setUsername(dataUpdate.username)
+            setRole("USER")
+            setImage("")
+            if(dataUpdate.image) {
+                setPreviewImage(`data:image/jpeg;base64,${dataUpdate.image}`)
+            }
+        }
+    }, [dataUpdate])
 
     const handleModal = () => {
         onClose()
@@ -30,29 +44,10 @@ export default function ModalUpdateUser(props) {
         }
     }
 
-    const validateEmail = (email) => {
-        return String(email)
-            .toLowerCase()
-            .match(
-                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            );
-    };
-
     const handleSubmitUser = async (event) => {
         event.preventDefault()
 
-        const isValidate = validateEmail(email)
-
-        if (!isValidate) {
-            toast.error("invalid email")
-            return
-        }
-
-        if (!password) {
-            toast.error("invalid password")
-        }
-
-        const data = await postCreateNewUser(email, password, username, role, image)
+        const data = await putUpdateUser(dataUpdate.id, username, role, image)
 
         if (data && data.EC !== 0) {
             toast.error(data.EM)
@@ -62,12 +57,10 @@ export default function ModalUpdateUser(props) {
         if (data && data.EC === 0) {
             toast.success(data.EM)
             onClose()
-            await props.fetchListUsers()
+            await fetchListUsersWithPaginate(currentPage)
         }
     }
     
-    console.log("check data update", dataUpdate)
-
     return (
         <div
             className={`fixed inset-0 flex items-center justify-center z-50 transition-all duration-200 
@@ -103,6 +96,7 @@ export default function ModalUpdateUser(props) {
                             <input
                                 type="password"
                                 value={password}
+                                disabled
                                 onChange={(event) => setPassword(event.target.value)}
                                 id="password"
                                 className="w-full border border-gray-300 rounded-md p-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-200 outline-none"
@@ -119,6 +113,7 @@ export default function ModalUpdateUser(props) {
                             <input
                                 type="email"
                                 value={email}
+                                disabled
                                 onChange={(event) => setEmail(event.target.value)}
                                 id="email"
                                 className="w-full border border-gray-300 rounded-md p-2 focus:border-blue-500 focus:ring-1 focus:ring-blue-200 outline-none"
@@ -164,7 +159,7 @@ export default function ModalUpdateUser(props) {
                                 <img
                                     src={previewImage}
                                     alt=""
-                                    className="w-full h-full"
+                                    className="w-full h-full object-contain"
                                 />
                             ) : <label
                                 className="block font-medium text-gray-700 cursor-pointer"

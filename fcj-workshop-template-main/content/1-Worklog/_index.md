@@ -24,9 +24,9 @@ Typically, and as a standard, a worklog is carried out over about 3 months (thro
 
 **Week 7:** [Implementing IAM, KMS, and CloudTrail for Secure AWS Resource Management](1.7-week7/)
 
-**Week 8:** [Doing task H...](1.8-week8/)
+**Week 8:** [EC2 Management, Database Migration & AWS CLI Practice](1.8-week8/)
 
-**Week 9:** [Doing task I...](1.9-week9/)
+**Week 9:** [Data Pipeline, S3, Glue, Athena & DynamoDB Practice](1.9-week9/)
 
 **Week 10:** [Doing task L...](1.10-week10/)
 

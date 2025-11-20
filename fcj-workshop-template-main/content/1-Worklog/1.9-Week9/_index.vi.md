@@ -5,55 +5,31 @@ weight: 1
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 9:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thực hành xử lý sự cố pipeline dữ liệu, làm việc với S3, Glue, Kinesis Data Firehose.
+* Tìm hiểu cách tạo và quản lý S3 bucket, delivery stream, Glue crawler cho ingest và xử lý dữ liệu.
+* Phân tích và trực quan hóa dữ liệu với Athena và QuickSight.
+* Khám phá, áp dụng các design pattern nâng cao với Amazon DynamoDB, bao gồm backup, restore và xây dựng ứng dụng serverless toàn cầu.
+* Trải nghiệm thực tế xây dựng kiến trúc serverless event-driven với DynamoDB.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Xử lý sự cố pipeline dữ liệu (Test Scenario Table Err) <br> - Tạo S3 bucket <br> - Tạo Delivery Stream <br> - Tạo Sample Data <br> - Tạo Glue Crawler | 03/11/2025   | 03/11/2025      | <https://000035.awsstudygroup.com/> |
+| 3   | - Kiểm tra dữ liệu <br>&emsp; + Giải thích code (bản tiếng Việt) <br>&emsp; + Lưu output vào S3 <br>&emsp; + Thiết lập session connect <br>&emsp; + Phân tích với Athena | 04/11/2025   | 04/11/2025      | <https://000035.awsstudygroup.com/> |
+| 4   | - Trực quan hóa với QuickSight <br> - Dọn dẹp tài nguyên & AWS CLI <br> **Thực hành:** <br>&emsp; + Thực hành với Amazon DynamoDB <br>&emsp; + Khám phá DynamoDB | 05/11/2025   | 05/11/2025      | <https://000039.awsstudygroup.com/> |
+| 5   | - Khám phá DynamoDB console <br>&emsp; + Backup và dọn dẹp tài nguyên <br>&emsp; + Design pattern nâng cao cho DynamoDB <br>&emsp; + Xây dựng & triển khai ứng dụng serverless toàn cầu với DynamoDB | 06/11/2025   | 06/11/2025      | <https://000039.awsstudygroup.com/> |
+| 6   | **Thực hành:** <br>&emsp; + Xây dựng kiến trúc serverless event-driven với DynamoDB <br>&emsp; + Chuẩn bị database <br>&emsp; + Xây dựng database | 07/11/2025   | 07/11/2025      | <https://000040.awsstudygroup.com/> |
 
 
 ### Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Đã xử lý thành công các tình huống pipeline dữ liệu, tạo S3 bucket, delivery stream và Glue crawler.
+* Phân tích, trực quan hóa dữ liệu với Athena và QuickSight.
+* Khám phá, thực hành với Amazon DynamoDB, bao gồm backup, restore và các design pattern nâng cao.
+* Xây dựng, triển khai ứng dụng serverless toàn cầu và kiến trúc event-driven với DynamoDB.
+* Nâng cao kỹ năng quản lý tài nguyên AWS và tự động hóa quy trình xử lý dữ liệu.
 
 

@@ -1,6 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 export default function Header() {
+
+    const navigate = useNavigate()
+
+    const handleLogin = () => {
+        navigate('/login')
+    }
+
+    const handleSignUp = () => {
+        navigate('/register')
+    }
 
     return (
         <header className="text-[#2a222b] text-[16px] font-medium">
@@ -26,8 +36,8 @@ export default function Header() {
                 </div>
                 <div>
                     <ul className='flex'>
-                        <li className='px-4 py-2 hover:text-purple-300 cursor-pointer'>Log in</li>
-                        <li className='px-4 py-2 bg-[#2a222b] rounded-2xl text-white hover:text-gray-400  hover:scale-90 ease-in-out transition cursor-pointer'>Sign up</li>
+                        <li onClick={handleLogin} className='px-4 py-2 hover:text-purple-300 cursor-pointer'>Log in</li>
+                        <li onClick={handleSignUp} className='px-4 py-2 bg-[#2a222b] rounded-2xl text-white hover:text-gray-400  hover:scale-90 ease-in-out transition cursor-pointer'>Sign up</li>
                         <li className='px-4 py-2 hover:text-purple-300 cursor-pointer'>Profile</li>
                     </ul>
                 </div>

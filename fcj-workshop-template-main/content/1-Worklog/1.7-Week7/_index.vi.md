@@ -5,55 +5,31 @@ weight: 1
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 7:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu và thực hành AWS IAM: user, group, role, policy.
+* Cấu hình permission, access control để bảo mật tài nguyên.
+* Thực hành AWS KMS mã hóa dữ liệu, test tích hợp với S3.
+* Enable CloudTrail để audit, dùng Athena truy vấn log.
+* Tạo EC2, tagging, quản lý policy qua IAM.
+* Áp dụng security restriction (IP, time, switch role) cho IAM user.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc                                                                                                                        | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                        |
+| --- | ------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ------------------------------------- |
+| 2   | - Truy cập EC2 console ở Tokyo, North Virginia <br> - Tạo EC2 khi chưa có tag <br> - Edit resource EC2, kiểm tra policy <br> - Tạo restriction policy | 19/10/2025   | 19/10/2025      | <https://000030.awsstudygroup.com/> <br> <https://000028.awsstudygroup.com/> |
+| 3   | - Tạo IAM Limited user <br> - Test IAM User Limits <br> - Tạo Policy, Role <br> - Tạo Group, User <br> - Tạo KMS <br> - Tạo bucket <br> - Upload data lên S3 | 20/10/2025   | 20/10/2025      | <https://000033.awsstudygroup.com/> |
+| 4   | - Tạo CloudTrail <br> - Logging CloudTrail & tạo Athena <br> - Truy vấn Athena <br> **Thực hành:** <br>&emsp; + Test, chia sẻ dữ liệu mã hóa trên S3 <br>&emsp; + Tạo IAM Group, User | 21/10/2025   | 21/10/2025      | <https://000044.awsstudygroup.com/> <br> <https://000033.awsstudygroup.com/> |
+| 5   | - Kiểm tra permission <br>&emsp; + Tạo admin IAM role <br>&emsp; + Cấu hình switch role <br>&emsp; + Giới hạn switch role theo IP <br>&emsp; + Giới hạn switch role theo thời gian | 22/10/2025   | 22/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Tạo S3 bucket <br>&emsp; + Tạo IAM user, access key <br>&emsp; + Tạo IAM role, sử dụng IAM role | 23/10/2025   | 23/10/2025      | <https://000048.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 7:
-
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Tạo, cấu hình EC2 ở nhiều region (Tokyo, North Virginia).
+* Thiết lập IAM user, group, role, policy, kiểm tra permission restriction.
+* Thực hành tạo KMS, test mã hóa với dữ liệu S3.
+* Enable CloudTrail, kết nối Athena, truy vấn log hoạt động.
+* Test RBAC: giới hạn switch role theo IP, thời gian.
+* Hiểu sâu về bảo mật tài nguyên AWS, cấu hình policy, compliance thực tế.
 
 

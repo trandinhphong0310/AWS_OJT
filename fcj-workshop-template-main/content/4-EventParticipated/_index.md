@@ -24,10 +24,14 @@ The workshop enhanced my technical understanding of agentic workflows and AI-pow
 ---
 
 ### [Event 2](4.2-Event2/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
+&emsp;**Event Name:** AI/ML/GenAI on AWS  
 
-&emsp;**Date & Time:** 09:00, August 13, 2025  
+&emsp;**Date & Time:** 08:30, November 15, 2025  
 
 &emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
 
 &emsp;**Role:** Attendee  
+
+&emsp;**Briefly Description:** The event focused on AWS AI/ML/GenAI services, starting with an overview of the AI/ML landscape in Vietnam, followed by an introduction and live demonstration of Amazon SageMaker—the end-to-end platform for developing and deploying machine learning models. The session covered data preparation, model training, tuning, deployment, and integrated MLOps. The latter part introduced Amazon Bedrock with foundation models (Claude, Llama, Titan), prompt engineering techniques, Retrieval-Augmented Generation (RAG) architecture, Bedrock Agents, and safety measures. A highlight was the live demo of building a Generative AI chatbot using Bedrock.
+
+&emsp;**Outcomes:** Through the event, I gained a clearer understanding of building and deploying AI/ML solutions on AWS, learned new techniques in prompt engineering and RAG, and how to select suitable foundation models. I also learned to use Amazon SageMaker and Bedrock for real-world AI applications, and recognized the importance of safety and content control in next-generation AI systems.

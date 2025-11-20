@@ -5,55 +5,32 @@ weight: 1
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 8:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thực hành kết nối và quản lý EC2 bằng nhiều phương pháp (RDP Client, Fleet Manager, SSH).
+* Tìm hiểu, cấu hình nguồn dữ liệu (SQL Server, Oracle) và thực hiện chuyển đổi schema sang Aurora MySQL.
+* Trải nghiệm thực tế các công cụ migration của AWS: tạo migration task, endpoint, xử lý sự cố.
+* Hiểu và sử dụng AWS CLI để quản lý tài khoản, region và tài nguyên.
+* Khám phá quy trình backup, restore và dọn dẹp tài nguyên trên AWS.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Tìm hiểu khái niệm database <br> - Tìm hiểu Amazon RDS và Amazon Aurora                                                                                         | 27/10/2025   | 27/10/2025      |
+| 3   | - Tìm hiểu Redshift và Elasticache <br> **Thực hành:** <br>&emsp; + Tạo VPC <br>&emsp; + Tạo security group cho EC2, RDS <br>&emsp; + Tạo DB subnet group <br>&emsp; + Tạo EC2 instance <br>&emsp; + Tạo RDS database instance | 28/10/2025   | 28/10/2025      | <https://000005.awsstudygroup.com/> |
+| 4   | - Triển khai ứng dụng <br> - Backup, restore & dọn dẹp tài nguyên <br> **Thực hành:** <br>&emsp; + EC2 Connect Fleet Manager <br>&emsp; + EC2 Connect RDP Client <br>&emsp; + SQLSrv Src Config | 29/10/2025   | 29/10/2025      | <https://000043.awsstudygroup.com/> <br> <https://000005.awsstudygroup.com/> |
+| 5   | - Kết nối Oracle SrcDB <br>&emsp; + Cấu hình Oracle SrcDB <br> - Xóa constraint <br> **Thực hành:** <br>&emsp; + MSSQL to aur MySQL target config <br>&emsp; + MSSQL to aur MySQL create project <br>&emsp; + MSSQL to aur MySQL SchemConv <br>&emsp; + Oracle2 MySQL Schema conversion 1 | 30/10/2025   | 30/10/2025      | <https://000043.awsstudygroup.com/> |
+| 6   | **Thực hành:** <br>&emsp; + Tạo Mig Task và Endpoint <br>&emsp; + Kiểm tra S3 <br>&emsp; + Tạo Severless Migration <br>&emsp; + Tạo event not <br>&emsp; + Xem log <br>&emsp; + Xử lý sự cố Test Scenario Mem Pressure | 31/10/2025   | 31/10/2025      | <https://000043.awsstudygroup.com/> |
 
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Kết nối thành công tới EC2 bằng cả RDP Client và Fleet Manager.
+* Cấu hình SQL Server, Oracle làm nguồn dữ liệu và thiết lập Aurora MySQL làm đích migration.
+* Hoàn thành các dự án chuyển đổi schema và migration từ MSSQL/Oracle sang Aurora MySQL, bao gồm xử lý sự cố và constraint.
+* Thực hành tạo migration task, endpoint, migration serverless; theo dõi log và event.
+* Sử dụng AWS CLI để quản lý tài nguyên, xác thực thông tin tài khoản, region, EC2.
+* Thực hiện backup, restore và dọn dẹp tài nguyên AWS trong quy trình migration.
 
 

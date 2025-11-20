@@ -5,54 +5,32 @@ weight: 1
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 
 ### Mục tiêu tuần 6:
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu và triển khai quản lý định danh, truy cập AWS với IAM, Role, Policy.
+* Quản lý xác thực, phân quyền người dùng qua Amazon Cognito, AWS Organizations.
+* Khám phá AWS Security Hub cho giám sát bảo mật tập trung.
+* Thực hành AWS KMS để mã hóa, bảo vệ dữ liệu.
+* Tự động hóa quản lý EC2 với Lambda, AWS CLI.
+* Áp dụng best practice tagging để tổ chức, quản lý tài nguyên hiệu quả.
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| Thứ | Công việc                                                                                                                        | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                        |
+| --- | ------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ------------------------------------- |
+| 2   | - Tìm hiểu Amazon Cognito <br> - Tìm hiểu Amazon Organization, AWS Identity Center | 12/10/2025   | 12/10/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Tìm hiểu Amazon KMS <br> - Tìm hiểu AWS Security Hub <br>&emsp; + Enable Security Hub <br>&emsp; + Tạo VPC <br>&emsp; + Tạo Security Group <br>&emsp; + Tạo EC2 instance <br>&emsp; + Slack webhook | 13/10/2025   | 13/10/2025      | <https://cloudjourney.awsstudygroup.com/> <br> <https://000022.awsstudygroup.com/> |
+| 4   | - Tạo Role cho Lambda <br> - Tạo Lambda Function stop instance & AWS CLI <br> **Cuối cùng:** <br>&emsp; + Kiểm tra kết quả | 14/10/2025   | 14/10/2025      | <https://000022.awsstudygroup.com/> |
+| 5   | - **Thực hành:** <br>&emsp; + Tạo EC2 Instance có tag <br>&emsp; + Quản lý tag tài nguyên AWS <br>&emsp; + Sử dụng tag với CLI <br> - Tạo resource group | 15/10/2025   | 15/10/2025      | <https://000027.awsstudygroup.com/> |
+| 6   | - **Thực hành:** <br>&emsp; + Tạo IAM User <br>&emsp; + Tạo IAM Policy <br>&emsp; + Tạo IAM Role <br>&emsp; + Switch Role | 16/10/2025   | 16/10/2025      | <https://000028.awsstudygroup.com/> |
 
 ### Kết quả đạt được tuần 6:
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
-
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* Cấu hình thành công Amazon Cognito, AWS Identity Center cho xác thực, phân quyền người dùng.
+* Trải nghiệm AWS Organizations quản lý đa tài khoản.
+* Enable, test AWS Security Hub giám sát bảo mật, compliance.
+* Tạo, áp dụng key mã hóa với AWS KMS bảo vệ dữ liệu.
+* Xây dựng, chạy Lambda function tự động stop EC2 bằng AWS CLI.
+* Thực hành tagging, resource group để quản lý, kiểm soát chi phí.
+* Tạo, test IAM user, policy, role, switch role đảm bảo phân quyền an toàn.
 
 
