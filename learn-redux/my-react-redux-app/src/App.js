@@ -1,25 +1,43 @@
-import logo from './logo.svg';
+import { useSelector } from 'react-redux';
 import './App.css';
+import { increaseCounter, decreaseCounter } from './action/actions';
+import countSelector from './redux/selector'
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 function App() {
+  const dispatch = useDispatch()
+  const count = useSelector(countSelector)
+
+  const handleIncreaseCounter = () => {
+    dispatch(increaseCounter())
+  }
+
+  const handleDecreaseCounter = () => {
+    dispatch(decreaseCounter())
+  }
+
+  const fetchAllUsers = async () => {
+    try {
+      const res = await axios.get('http://localhost:8080/users/all')
+      return res && res.data ? res.data : []
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    fetchAllUsers()
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>Count: {count}</div>
+      <button onClick={handleIncreaseCounter}>Increase Count</button>
+      <button onClick={handleDecreaseCounter}>Decrease Count</button>
     </div>
   );
 }
 
-export default App;
+export default App
