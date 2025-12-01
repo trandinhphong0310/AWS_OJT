@@ -1,9 +1,13 @@
-import React from 'react'
+import FormAddNew from "./FormAddNew";
+import Header from "./Header";
+import TableUser from "./TableUser";
 
 export default function Home() {
-  return (
-    <div>
-        
-    </div>
-  )
+    return (
+        <>
+            <Header />
+            <FormAddNew />
+            <TableUser />
+        </>
+    )
 }

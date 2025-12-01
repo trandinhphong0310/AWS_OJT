@@ -5,9 +5,6 @@ weight: 7
 chapter: false
 pre: " <b> 7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 >Tại đây bạn có thể tự do đóng góp ý kiến cá nhân về những trải nghiệm khi tham gia chương trình First Cloud Journey, giúp team FCJ cải thiện những vấn đề còn thiếu sót dựa trên các hạng mục sau:
 
@@ -34,11 +31,16 @@ Công ty có hỗ trợ phụ cấp thực tập và tạo điều kiện về t
 
 ### Một số câu hỏi khác
 - Điều bạn **hài lòng nhất** trong thời gian thực tập?  
+    - Điều khiến tôi hài lòng nhất là môi trường làm việc thân thiện và tinh thần hỗ trợ của mọi người trong team. Mỗi khi gặp khó khăn, tôi luôn nhận được sự hướng dẫn tận tình từ mentor và sự giúp đỡ của các anh/chị đồng nghiệp. Nhờ vậy, tôi học được rất nhiều kiến thức mới và cảm thấy tự tin hơn trong công việc.
 - Điều bạn nghĩ công ty **cần cải thiện** cho các thực tập sinh sau?  
+    - Theo tôi, công ty có thể bổ sung thêm các hoạt động team building hoặc những buổi chia sẻ nội bộ giữa các phòng ban. Điều này sẽ giúp thực tập sinh hiểu hơn về quy trình làm việc thực tế và giúp kết nối mọi người tốt hơn. Ngoài ra, nếu có thêm các buổi training chuyên sâu theo từng mảng thì sẽ rất hữu ích.
 - Nếu giới thiệu cho bạn bè, bạn có **khuyên họ thực tập ở đây không**? Vì sao?  
-
+    - Có. Tôi hoàn toàn sẽ giới thiệu cho bạn bè vì đây là một môi trường thân thiện, chuyên nghiệp và rất phù hợp để học hỏi. Mentor tận tâm, công việc rõ ràng, và mọi người luôn sẵn sàng hỗ trợ. Thực tập ở đây không chỉ giúp phát triển kỹ năng chuyên môn mà còn rèn luyện được tư duy, tác phong làm việc và cách giao tiếp trong doanh nghiệp.
 
 ### Đề xuất & mong muốn
 - Bạn có đề xuất gì để cải thiện trải nghiệm trong kỳ thực tập?  
+    - Mình đề xuất công ty tổ chức thêm các buổi giao lưu, team building hoặc chia sẻ kinh nghiệm giữa các phòng ban để thực tập sinh có cơ hội kết nối, học hỏi nhiều hơn. Ngoài ra, nếu có thể bổ sung các buổi training chuyên sâu theo từng lĩnh vực thì sẽ giúp thực tập sinh phát triển kỹ năng tốt hơn.
 - Bạn có muốn tiếp tục chương trình này trong tương lai?
+    - Mình rất mong muốn được tiếp tục tham gia chương trình hoặc các dự án khác của công ty trong tương lai, vì môi trường làm việc ở đây rất tích cực và phù hợp để phát triển bản thân.
 - Góp ý khác (tự do chia sẻ):
+    - Mình cảm ơn công ty và team FCJ đã tạo điều kiện cho mình học hỏi, trải nghiệm thực tế và phát triển kỹ năng. Hy vọng chương trình sẽ ngày càng hoàn thiện và mang lại nhiều giá trị cho các bạn thực tập sinh sau này.

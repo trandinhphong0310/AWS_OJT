@@ -35,66 +35,19 @@ Bước thứ hai, bước chủ yếu liên quan đến sàng lọc hợp tác.
 
 ![Hình 2](/images/DP-process-blog-image-2.png)
 
----
+Trước đây, việc đánh giá quy trình lập kế hoạch nhu cầu để xem nó mang lại giá trị kinh doanh như thế nào thường dựa vào các chỉ số độ chính xác như MAPE (Mean Absolute Percentage Error) hoặc WAPE (Weighted Absolute Percentage Error). Mặc dù những chỉ số này vẫn rất quan trọng để đánh giá hiệu quả tổng thể, nhưng chúng chưa đủ để đo lường giá trị được tạo ra ở từng bước trong quy trình hai giai đoạn. Chúng chỉ tập trung vào mức độ sai lệch giữa dự báo và kết quả thực tế, mà bỏ qua các yếu tố đầu vào và những điều chỉnh quan trọng được thực hiện trong quá trình hợp tác.
 
-## Core microservice
+Chính vì vậy, khái niệm Forecast Value Add (FVA) trở nên cần thiết. FVA đo lường riêng biệt hiệu quả của dự báo do máy tạo ra và phần điều chỉnh của con người trong quá trình dự báo, giúp tổ chức xác định hoạt động nào thực sự mang lại giá trị và hoạt động nào có thể gây nhiễu hoặc thiên lệch. Bằng cách phân tích FVA, doanh nghiệp có thể tối ưu hóa quy trình lập kế hoạch nhu cầu, tập trung vào những bước thực sự quan trọng.
 
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
+Ví dụ, **Tempur Sealy International, the world’s bedding provider and RS components** đã áp dụng thành công FVA và nhờ đó hiểu rõ hơn đâu là những yếu tố thực sự giúp cải thiện dự báo, thay vì chỉ tạo ra nhiễu.
 
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+Giải pháp của AWS Supply Chain hỗ trợ quy trình hai bước này và cung cấp các công cụ báo cáo, phân tích giúp so sánh kết quả thực tế với các loại dự báo (dự báo ban đầu, dự báo đồng thuận) và tính toán FVA để đánh giá giá trị được tạo ra ở từng bước. Nhờ vậy, các tổ chức có thể xây dựng kế hoạch nhu cầu mang lại giá trị kinh doanh cao hơn, chứ không chỉ dừng lại ở độ chính xác của con số dự báo.
 
----
+## Đừng chỉ dự báo - hãy kiến tạo tương lai của bạn
 
-## Front door microservice
+Lập kế hoạch nhu cầu không chỉ là về độ chính xác - nó là tạo ra giá trị kinh doanh thực sự. Cách tiếp cận two-step với AWS Supply Chain hỗ trợ quá trình này, kết hợp dự báo ML tiên tiến với sự kết hợp mạnh mẽ của công cụ. Bằng cách tận dụng các thông tin chi tiết dựa trên dữ liệu cùng kiến thức chuyên môn của con người, các tổ chức có thể xây dựng kế hoạch nhu cầu không chỉ dự đoán mà còn định hình tương lai. Trong thị trường đầy biến động ngày nay, đây không chỉ là một lợi thế — mà là một điều cần thiết. Với AWS Supply Chain, hãy biến việc lập kế hoạch nhu cầu của bạn thành một lợi thế chiến lược giúp doanh nghiệp phát triển mạnh mẽ hơn.
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
-
----
-
-## Staging ER7 microservice
-
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
-
----
-
-## Tính năng mới trong giải pháp
-
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+Hãy bắt đầu hành trình của bạn bằng cách:  
+- **Đánh giá quy trình hiện tại:** Xem xét cách tổ chức của bạn cân bằng giữa độ chính xác của dự báo và ý kiến hợp tác từ các bên liên quan. Bạn có đang thực sự tận dụng tối đa giá trị của cả hai chưa? 
+- **Khám phá AWS Supply Chain:** Hãy lên lịch một buổi demo với đội ngũ quản lý tài khoản để xem cách mà công cụ dự báo bằng ML và nền tảng hợp tác tích hợp của AWS có thể thay đổi quy trình lập kế hoạch nhu cầu của bạn.
+- **Tìm hiểu kỹ thuật:** Truy cập AWS Workshop Studio để tự mình trải nghiệm hướng dẫn kỹ thuật. Bạn sẽ học cách tạo một instance, nhập dữ liệu, thao tác với giao diện, tạo insight, và xây dựng kế hoạch nhu cầu.  

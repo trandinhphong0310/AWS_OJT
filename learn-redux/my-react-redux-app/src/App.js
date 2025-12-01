@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
-import './App.css';
+// import './App.css';
 import { increaseCounter, decreaseCounter } from './action/actions';
 import countSelector from './redux/selector'
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { useEffect } from 'react';
+import Home from './components/Home';
 
 function App() {
   const dispatch = useDispatch()
@@ -32,11 +33,12 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <div>Count: {count}</div>
-      <button onClick={handleIncreaseCounter}>Increase Count</button>
-      <button onClick={handleDecreaseCounter}>Decrease Count</button>
-    </div>
+    // <div className="App">
+    //   <div>Count: {count}</div>
+    //   <button onClick={handleIncreaseCounter}>Increase Count</button>
+    //   <button onClick={handleDecreaseCounter}>Decrease Count</button>
+    // </div>
+    <Home />
   );
 }
 

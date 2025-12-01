@@ -29,13 +29,18 @@ The company provides an internship allowance and offers flexible working hours w
 ---
 
 ### Additional Questions
-- What did you find **most satisfying** during your internship?  
-- What do you think the company **should improve** for future interns?  
-- If recommending to a friend, would you **suggest they intern here**? Why or why not?  
 
----
+ What did you find most satisfying during your internship?  
+	 - The most satisfying aspect was the friendly working environment and the supportive spirit of the team. Whenever I faced difficulties, I always received dedicated guidance from my mentor and help from colleagues. Thanks to this, I learned a lot of new knowledge and felt more confident in my work.
+ What do you think the company should improve for future interns?  
+	 - I think the company could organize more team building activities or internal sharing sessions between departments. This would help interns better understand real working processes and connect with others. Additionally, more specialized training sessions would be very helpful.
+ If recommending to a friend, would you suggest they intern here? Why or why not?  
+	 - Yes. I would definitely recommend this place to my friends because it is a friendly, professional environment and very suitable for learning. The mentor is dedicated, the work is clear, and everyone is always willing to help. Interning here not only helps develop professional skills but also trains thinking, working style, and communication in a business setting.
 
-### Suggestions & Expectations
+
 - Do you have any suggestions to improve the internship experience?  
-- Would you like to continue this program in the future?  
-- Any other comments (free sharing):
+	- I suggest the company organize more networking, team building, or experience sharing sessions between departments so interns have more opportunities to connect and learn. Also, more specialized training sessions would help interns develop their skills further.
+ Would you like to continue this program in the future?  
+	- I would love to continue participating in this program or other projects of the company in the future, as the working environment here is very positive and suitable for personal development.
+ Any other comments (free sharing):  
+	- I appreciate the company and the FCJ team for giving me the opportunity to learn, gain real experience, and develop my skills. I hope the program will continue to improve and bring even more value to future interns.
