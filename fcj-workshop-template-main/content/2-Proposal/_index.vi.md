@@ -1,108 +1,120 @@
 ---
 title: "Bản đề xuất"
-date: "2025-09-09"
+date: "2025-12-01"
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Tại phần này, bạn cần tóm tắt các nội dung trong workshop mà bạn **dự tính** sẽ làm.
+# Document QA với AWS Bedrock
 
-# IoT Weather Platform for Lab Research  
-## Giải pháp AWS Serverless hợp nhất cho giám sát thời tiết thời gian thực  
+## Hệ thống Phân tích Tài liệu Thông minh sử dụng RAG
 
-### 1. Tóm tắt điều hành  
-IoT Weather Platform được thiết kế dành cho nhóm *ITea Lab* tại TP. Hồ Chí Minh nhằm nâng cao khả năng thu thập và phân tích dữ liệu thời tiết. Nền tảng hỗ trợ tối đa 5 trạm thời tiết, có khả năng mở rộng lên 10–15 trạm, sử dụng thiết bị biên Raspberry Pi kết hợp cảm biến ESP32 để truyền dữ liệu qua MQTT. Nền tảng tận dụng các dịch vụ AWS Serverless để cung cấp giám sát thời gian thực, phân tích dự đoán và tiết kiệm chi phí, với quyền truy cập giới hạn cho 5 thành viên phòng lab thông qua Amazon Cognito.  
+### 1. Tóm tắt điều hành
 
-### 2. Tuyên bố vấn đề  
-*Vấn đề hiện tại*  
-Các trạm thời tiết hiện tại yêu cầu thu thập dữ liệu thủ công, khó quản lý khi có nhiều trạm. Không có hệ thống tập trung cho dữ liệu hoặc phân tích thời gian thực, và các nền tảng bên thứ ba thường tốn kém và quá phức tạp.  
+Hệ thống Document QA là một ứng dụng serverless được thiết kế để cách mạng hóa cách người dùng tương tác với tài liệu. Bằng cách tận dụng **AWS Bedrock** cho Generative AI và công nghệ **RAG (Retrieval Augmented Generation)**, nền tảng cho phép người dùng tải lên tài liệu PDF/TXT và đặt câu hỏi bằng ngôn ngữ tự nhiên. Hệ thống cung cấp các câu trả lời chính xác, nhận biết ngữ cảnh bằng cách truy xuất thông tin liên quan từ tài liệu đã tải lên, giảm đáng kể thời gian tìm kiếm thủ công và cải thiện khả năng tiếp cận thông tin.
 
-*Giải pháp*  
-Nền tảng sử dụng AWS IoT Core để tiếp nhận dữ liệu MQTT, AWS Lambda và API Gateway để xử lý, Amazon S3 để lưu trữ (bao gồm data lake), và AWS Glue Crawlers cùng các tác vụ ETL để trích xuất, chuyển đổi, tải dữ liệu từ S3 data lake sang một S3 bucket khác để phân tích. AWS Amplify với Next.js cung cấp giao diện web, và Amazon Cognito đảm bảo quyền truy cập an toàn. Tương tự như Thingsboard và CoreIoT, người dùng có thể đăng ký thiết bị mới và quản lý kết nối, nhưng nền tảng này hoạt động ở quy mô nhỏ hơn và phục vụ mục đích sử dụng nội bộ. Các tính năng chính bao gồm bảng điều khiển thời gian thực, phân tích xu hướng và chi phí vận hành thấp.  
+### 2. Tuyên bố vấn đề
 
-*Lợi ích và hoàn vốn đầu tư (ROI)*  
-Giải pháp tạo nền tảng cơ bản để các thành viên phòng lab phát triển một nền tảng IoT lớn hơn, đồng thời cung cấp nguồn dữ liệu cho những người nghiên cứu AI phục vụ huấn luyện mô hình hoặc phân tích. Nền tảng giảm bớt báo cáo thủ công cho từng trạm thông qua hệ thống tập trung, đơn giản hóa quản lý và bảo trì, đồng thời cải thiện độ tin cậy dữ liệu. Chi phí hàng tháng ước tính 0,66 USD (theo AWS Pricing Calculator), tổng cộng 7,92 USD cho 12 tháng. Tất cả thiết bị IoT đã được trang bị từ hệ thống trạm thời tiết hiện tại, không phát sinh chi phí phát triển thêm. Thời gian hoàn vốn 6–12 tháng nhờ tiết kiệm đáng kể thời gian thao tác thủ công.  
+### Vấn đề là gì?
 
-### 3. Kiến trúc giải pháp  
-Nền tảng áp dụng kiến trúc AWS Serverless để quản lý dữ liệu từ 5 trạm dựa trên Raspberry Pi, có thể mở rộng lên 15 trạm. Dữ liệu được tiếp nhận qua AWS IoT Core, lưu trữ trong S3 data lake và xử lý bởi AWS Glue Crawlers và ETL jobs để chuyển đổi và tải vào một S3 bucket khác cho mục đích phân tích. Lambda và API Gateway xử lý bổ sung, trong khi Amplify với Next.js cung cấp bảng điều khiển được bảo mật bởi Cognito.  
+Các phương pháp tìm kiếm tài liệu truyền thống (khớp từ khóa) thường không nắm bắt được ngữ cảnh hoặc ý nghĩa ngữ nghĩa. Việc xem xét tài liệu thủ công tốn nhiều thời gian, dễ xảy ra lỗi và không hiệu quả, đặc biệt là đối với khối lượng văn bản lớn. Người dùng gặp khó khăn trong việc trích xuất thông tin chi tiết cụ thể một cách nhanh chóng, dẫn đến tắc nghẽn năng suất.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+### Giải pháp
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+Chúng tôi đề xuất một **Chatbot dựa trên RAG Serverless** sử dụng **AWS Bedrock (Amazon Titan)**. Giải pháp bao gồm:
 
-*Dịch vụ AWS sử dụng*  
-- *AWS IoT Core*: Tiếp nhận dữ liệu MQTT từ 5 trạm, mở rộng lên 15.  
-- *AWS Lambda*: Xử lý dữ liệu và kích hoạt Glue jobs (2 hàm).  
-- *Amazon API Gateway*: Giao tiếp với ứng dụng web.  
-- *Amazon S3*: Lưu trữ dữ liệu thô (data lake) và dữ liệu đã xử lý (2 bucket).  
-- *AWS Glue*: Crawlers lập chỉ mục dữ liệu, ETL jobs chuyển đổi và tải dữ liệu.  
-- *AWS Amplify*: Lưu trữ giao diện web Next.js.  
-- *Amazon Cognito*: Quản lý quyền truy cập cho người dùng phòng lab.  
+- **Tải lên & Xử lý**: Người dùng tải tài liệu lên S3; Lambda kích hoạt trích xuất văn bản và tạo embeddings.
+- **Tìm kiếm Vector**: Embeddings được lưu trữ và truy vấn để tìm các đoạn tài liệu liên quan.
+- **Generative AI**: AWS Bedrock tạo ra các phản hồi ngôn ngữ tự nhiên dựa trên ngữ cảnh được truy xuất.
+- **Kiến trúc Serverless**: Được xây dựng trên AWS Lambda, API Gateway và DynamoDB để tự động mở rộng và tiết kiệm chi phí.
 
-*Thiết kế thành phần*  
-- *Thiết bị biên*: Raspberry Pi thu thập và lọc dữ liệu cảm biến, gửi tới IoT Core.  
-- *Tiếp nhận dữ liệu*: AWS IoT Core nhận tin nhắn MQTT từ thiết bị biên.  
-- *Lưu trữ dữ liệu*: Dữ liệu thô lưu trong S3 data lake; dữ liệu đã xử lý lưu ở một S3 bucket khác.  
-- *Xử lý dữ liệu*: AWS Glue Crawlers lập chỉ mục dữ liệu; ETL jobs chuyển đổi để phân tích.  
-- *Giao diện web*: AWS Amplify lưu trữ ứng dụng Next.js cho bảng điều khiển và phân tích thời gian thực.  
-- *Quản lý người dùng*: Amazon Cognito giới hạn 5 tài khoản hoạt động.  
+### Lợi ích và Hoàn vốn đầu tư (ROI)
 
-### 4. Triển khai kỹ thuật  
-*Các giai đoạn triển khai*  
-Dự án gồm 2 phần — thiết lập trạm thời tiết biên và xây dựng nền tảng thời tiết — mỗi phần trải qua 4 giai đoạn:  
-1. *Nghiên cứu và vẽ kiến trúc*: Nghiên cứu Raspberry Pi với cảm biến ESP32 và thiết kế kiến trúc AWS Serverless (1 tháng trước kỳ thực tập).  
-2. *Tính toán chi phí và kiểm tra tính khả thi*: Sử dụng AWS Pricing Calculator để ước tính và điều chỉnh (Tháng 1).  
-3. *Điều chỉnh kiến trúc để tối ưu chi phí/giải pháp*: Tinh chỉnh (ví dụ tối ưu Lambda với Next.js) để đảm bảo hiệu quả (Tháng 2).  
-4. *Phát triển, kiểm thử, triển khai*: Lập trình Raspberry Pi, AWS services với CDK/SDK và ứng dụng Next.js, sau đó kiểm thử và đưa vào vận hành (Tháng 2–3).  
+- **Hiệu quả**: Giảm thời gian phân tích tài liệu từ hàng giờ xuống còn vài giây.
+- **Chính xác**: RAG đảm bảo câu trả lời dựa trên tài liệu được cung cấp, giảm thiểu ảo giác (hallucinations).
+- **Tiết kiệm chi phí**: Mô hình serverless trả tiền theo mức sử dụng (ước tính < $5/tháng cho mức sử dụng thấp).
+- **Khả năng mở rộng**: Tự động xử lý tải thay đổi mà không cần quản lý cơ sở hạ tầng thủ công.
 
-*Yêu cầu kỹ thuật*  
-- *Trạm thời tiết biên*: Cảm biến (nhiệt độ, độ ẩm, lượng mưa, tốc độ gió), vi điều khiển ESP32, Raspberry Pi làm thiết bị biên. Raspberry Pi chạy Raspbian, sử dụng Docker để lọc dữ liệu và gửi 1 MB/ngày/trạm qua MQTT qua Wi-Fi.  
-- *Nền tảng thời tiết*: Kiến thức thực tế về AWS Amplify (lưu trữ Next.js), Lambda (giảm thiểu do Next.js xử lý), AWS Glue (ETL), S3 (2 bucket), IoT Core (gateway và rules), và Cognito (5 người dùng). Sử dụng AWS CDK/SDK để lập trình (ví dụ IoT Core rules tới S3). Next.js giúp giảm tải Lambda cho ứng dụng web fullstack.  
+### 3. Kiến trúc giải pháp
 
-### 5. Lộ trình & Mốc triển khai  
-- *Trước thực tập (Tháng 0)*: 1 tháng lên kế hoạch và đánh giá trạm cũ.  
-- *Thực tập (Tháng 1–3)*:  
-    - Tháng 1: Học AWS và nâng cấp phần cứng.  
-    - Tháng 2: Thiết kế và điều chỉnh kiến trúc.  
-    - Tháng 3: Triển khai, kiểm thử, đưa vào sử dụng.  
-- *Sau triển khai*: Nghiên cứu thêm trong vòng 1 năm.  
+Nền tảng sử dụng kiến trúc serverless hiện đại để đảm bảo khả năng mở rộng, bảo mật và hiệu suất.
 
-### 6. Ước tính ngân sách  
-Có thể xem chi phí trên [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01)  
-Hoặc tải [tệp ước tính ngân sách](../attachments/budget_estimation.pdf).  
+![Architecture](/images/2-Proposal/architecture.png)
 
-*Chi phí hạ tầng*  
-- AWS Lambda: 0,00 USD/tháng (1.000 request, 512 MB lưu trữ).  
-- S3 Standard: 0,15 USD/tháng (6 GB, 2.100 request, 1 GB quét).  
-- Truyền dữ liệu: 0,02 USD/tháng (1 GB vào, 1 GB ra).  
-- AWS Amplify: 0,35 USD/tháng (256 MB, request 500 ms).  
-- Amazon API Gateway: 0,01 USD/tháng (2.000 request).  
-- AWS Glue ETL Jobs: 0,02 USD/tháng (2 DPU).  
-- AWS Glue Crawlers: 0,07 USD/tháng (1 crawler).  
-- MQTT (IoT Core): 0,08 USD/tháng (5 thiết bị, 45.000 tin nhắn).  
+### Dịch vụ AWS sử dụng
 
-*Tổng*: 0,7 USD/tháng, 8,40 USD/12 tháng  
-- *Phần cứng*: 265 USD một lần (Raspberry Pi 5 và cảm biến).  
+- **AWS Bedrock**: Cung cấp các Mô hình Nền tảng (Amazon Titan) cho embeddings và tạo văn bản.
+- **AWS Lambda**: Tính toán serverless để xử lý các yêu cầu API, xử lý tài liệu và điều phối.
+- **Amazon API Gateway**: Quản lý các điểm cuối REST API cho frontend.
+- **Amazon S3**: Lưu trữ tài liệu thô đã tải lên và tài sản tĩnh frontend.
+- **Amazon DynamoDB**: Quản lý phiên người dùng và lịch sử trò chuyện.
+- **Vector Store**: (Được triển khai qua Lambda/Local hoặc vector DB chuyên dụng) Lưu trữ embeddings tài liệu cho tìm kiếm ngữ nghĩa.
 
-### 7. Đánh giá rủi ro  
-*Ma trận rủi ro*  
-- Mất mạng: Ảnh hưởng trung bình, xác suất trung bình.  
-- Hỏng cảm biến: Ảnh hưởng cao, xác suất thấp.  
-- Vượt ngân sách: Ảnh hưởng trung bình, xác suất thấp.  
+### Thiết kế thành phần
 
-*Chiến lược giảm thiểu*  
-- Mạng: Lưu trữ cục bộ trên Raspberry Pi với Docker.  
-- Cảm biến: Kiểm tra định kỳ, dự phòng linh kiện.  
-- Chi phí: Cảnh báo ngân sách AWS, tối ưu dịch vụ.  
+- **Frontend**: Được lưu trữ trên S3 (hoặc Amplify), cung cấp giao diện trò chuyện thân thiện với người dùng.
+- **Lớp API**: API Gateway định tuyến các yêu cầu (`/upload`, `/ask`) đến các hàm Lambda.
+- **Lớp Xử lý**: Lambda xử lý trích xuất văn bản, gọi Bedrock để lấy embeddings và thực hiện tìm kiếm tương đồng vector.
+- **Lớp AI**: AWS Bedrock tạo phản hồi sử dụng ngữ cảnh được truy xuất và truy vấn của người dùng.
 
-*Kế hoạch dự phòng*  
-- Quay lại thu thập thủ công nếu AWS gặp sự cố.  
-- Sử dụng CloudFormation để khôi phục cấu hình liên quan đến chi phí.  
+### 4. Triển khai kỹ thuật
 
-### 8. Kết quả kỳ vọng  
-*Cải tiến kỹ thuật*: Dữ liệu và phân tích thời gian thực thay thế quy trình thủ công. Có thể mở rộng tới 10–15 trạm.  
-*Giá trị dài hạn*: Nền tảng dữ liệu 1 năm cho nghiên cứu AI, có thể tái sử dụng cho các dự án tương lai.
+**Các giai đoạn triển khai**
+
+- **Giai đoạn 1: Nền tảng (Tuần 1-4)**: Thiết lập môi trường AWS, quyền truy cập Bedrock và logic backend cơ bản.
+- **Giai đoạn 2: API & Bảo mật (Tuần 5-7)**: Phát triển API Gateway, Lambda functions và triển khai CORS/Bảo mật.
+- **Giai đoạn 3: Phát triển Frontend (Tuần 8-11)**: Xây dựng giao diện React/Next.js và tích hợp với API.
+- **Giai đoạn 4: Kiểm thử & Triển khai (Tuần 12-14)**: Kiểm thử toàn diện, tối ưu hóa và triển khai cuối cùng.
+
+**Yêu cầu kỹ thuật**
+
+- **Mô hình AI**: Amazon Titan (qua Bedrock) cho Embeddings và Tạo văn bản.
+- **Backend**: Node.js/Python trên AWS Lambda.
+- **Cơ sở hạ tầng dưới dạng mã (IaC)**: Serverless Framework hoặc AWS CDK.
+- **Frontend**: React.js / Next.js.
+
+### 5. Lộ trình & Mốc triển khai
+
+- **Tháng 1**: Thiết kế kiến trúc, Thiết lập AWS, Backend Core (Upload/Embeddings).
+- **Tháng 2**: Triển khai RAG, Logic tìm kiếm Vector, Phát triển API.
+- **Tháng 3**: Tích hợp Frontend, Hoàn thiện UI/UX, Kiểm thử và Ra mắt.
+
+### 6. Ước tính ngân sách
+
+**Chi phí hàng tháng ước tính (Sử dụng Thấp-Trung bình)**
+
+- **AWS Bedrock (Titan)**: ~$0 (Free Tier / Chi phí thấp cho mỗi 1k tokens)
+- **AWS Lambda**: ~$0.20 cho 1M yêu cầu
+- **Amazon S3**: ~$0.023 mỗi GB
+- **Amazon DynamoDB**: ~$0.25 cho 1M yêu cầu
+- **Amazon API Gateway**: ~$3.50 cho 1M yêu cầu
+
+**Tổng ước tính**: < **$5.00 / tháng**
+
+### 7. Đánh giá rủi ro
+
+#### Ma trận rủi ro
+
+- **Ảo giác (Lỗi AI)**: Ảnh hưởng Trung bình, Xác suất Trung bình.
+- **Vượt ngân sách**: Ảnh hưởng Trung bình, Xác suất Thấp (Serverless).
+- **Rò rỉ dữ liệu**: Ảnh hưởng Cao, Xác suất Thấp.
+
+#### Chiến lược giảm thiểu
+
+- **Ảo giác**: Triển khai RAG nghiêm ngặt (câu trả lời dựa trên ngữ cảnh).
+- **Chi phí**: Thiết lập Cảnh báo Ngân sách AWS và hạn ngạch sử dụng.
+- **Bảo mật**: Sử dụng Presigned URLs cho S3, vai trò IAM với quyền tối thiểu.
+
+### 8. Kết quả kỳ vọng
+
+#### Cải tiến kỹ thuật
+
+- Quy trình phân tích tài liệu hoàn toàn tự động.
+- Độ trễ truy xuất dưới một giây cho tìm kiếm vector.
+- Kiến trúc có khả năng mở rộng hỗ trợ người dùng đồng thời.
+
+#### Giá trị dài hạn
+
+- Một khung RAG có thể tái sử dụng cho các ứng dụng cơ sở tri thức trong tương lai.
+- Tăng năng suất đáng kể cho người dùng cần truy xuất thông tin nhanh chóng.

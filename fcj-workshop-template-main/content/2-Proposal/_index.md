@@ -1,129 +1,120 @@
 ---
 title: "Proposal"
-date: "2025-09-09"
+date: "2025-12-01"
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# AI Chatbot Platform on AWS
-## A Serverless, Secure, and Scalable Architecture for Conversational Intelligence
+# Document QA with AWS Bedrock
+
+## Intelligent Document Analysis System using RAG
 
 ### 1. Executive Summary
-This project proposes a **serverless AI Chatbot Platform** designed to deliver intelligent, secure, and cost-effective conversational services using AWS Cloud infrastructure.
-The platform leverages **AWS Bedrock for generative AI, Lambda for serverless compute**, and **API Gateway** for scalable API management. It integrates **DynamoDB** and **OpenSearch** for structured and unstructured data storage, while **S3** handles file persistence.
 
-A complete **CI/CD pipeline** (CodePipeline, CodeBuild, CodeDeploy, and CodeArtifact) automates deployment and version control, ensuring continuous delivery from GitHub. The architecture is fully monitored and protected through **CloudWatch, CloudTrail, Secrets Manager, IAM,** and **WAF**, ensuring operational reliability and compliance.
+The Document QA system is a serverless application designed to revolutionize how users interact with documents. By leveraging **AWS Bedrock** for Generative AI and **RAG (Retrieval Augmented Generation)** technology, the platform allows users to upload PDF/TXT documents and ask natural language questions. The system provides accurate, context-aware answers by retrieving relevant information from the uploaded documents, significantly reducing manual search time and improving information accessibility.
 
 ### 2. Problem Statement
+
 ### What’s the Problem?
-Most chatbot platforms rely on third-party APIs or monolithic servers, resulting in:
-* High operational and maintenance costs.
-* Limited scalability when handling concurrent user requests.
-* Security and compliance challenges for sensitive user data.
+
+Traditional document search methods (keyword matching) often fail to capture context or semantic meaning. Manual document review is time-consuming, error-prone, and inefficient, especially for large volumes of text. Users struggle to extract specific insights quickly, leading to productivity bottlenecks.
 
 ### The Solution
-To develop a **cost-efficient, scalable, and serverless AI chatbot system** built entirely on AWS cloud-native services, enabling seamless integration of conversational AI, data search, and logging while minimizing DevOps overhead.
+
+We propose a **Serverless RAG-based Chatbot** using **AWS Bedrock (Amazon Titan)**. The solution involves:
+
+- **Upload & Processing**: Users upload documents to S3; Lambda functions trigger text extraction and embedding generation.
+- **Vector Search**: Embeddings are stored and queried to find relevant document chunks.
+- **Generative AI**: AWS Bedrock generates natural language responses based on the retrieved context.
+- **Serverless Architecture**: Built on AWS Lambda, API Gateway, and DynamoDB for automatic scaling and cost efficiency.
+
+### Benefits and Return on Investment
+
+- **Efficiency**: Reduces document analysis time from hours to seconds.
+- **Accuracy**: RAG ensures answers are grounded in the provided document, minimizing hallucinations.
+- **Cost-Effective**: Serverless pay-as-you-go model (estimated < $5/month for low usage).
+- **Scalability**: Automatically handles varying loads without manual infrastructure management.
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to deliver intelligent, scalable, and cost-effective conversational services. User messages are sent through Amazon API Gateway and processed by AWS Lambda, which integrates with Amazon Bedrock for natural language generation. Chat data and logs are stored securely in Amazon DynamoDB and Amazon S3, while Amazon OpenSearch enables real-time analytics and search across conversations. The frontend interface is hosted on AWS Amplify, secured with Amazon Cognito, and delivered globally via CloudFront. The architecture is detailed below:
 
-![AI Chatbot Platform on AWS](/images/2-Proposal/chatbot_architect.jpeg)  
+The platform employs a modern serverless architecture to ensure scalability, security, and performance.
+
+![Architecture](/images/2-Proposal/architecture.png)
 
 ### AWS Services Used
-- **Amazon API Gateway**:  Serves as the entry point for all client requests, routing them securely to backend services.
-- **AWS Lambda**:  Executes chatbot logic, message ingestion, and data processing without the need for managing servers.
-- **Amazon Bedrock**:  Provides access to foundational large language models (LLMs) for natural language understanding and response generation.
-- **Amazon DynamoDB**:  A fully managed NoSQL database used for storing chat sessions, user profiles, and message histories.
-- **Amazon S3**:  Used for storing static content such as chatbot logs, configuration files, and uploaded documents.
-- **Amazon CloudFront**:  Acts as a content delivery network (CDN) to accelerate web responses globally.
-- **AWS WAF (Web Application Firewall)**:  Protects the API endpoints from common web exploits and attacks.
-- **Amazon CloudWatch**:  Monitors application logs, Lambda performance metrics, and provides alerting.
-- **AWS CloudTrail**:  Records all API activity across the AWS account for auditing and compliance.
-- **AWS IAM (Identity and Access Management)**:  Manages secure access control for users and services.
-- **AWS KMS (Key Management Service)**:  Provides data encryption for sensitive information.
-- **Amazon CodePipeline, CodeBuild, and CodeDeploy**:  Automate CI/CD processes for continuous integration and deployment.
-- **Amazon OpenSearch Service**:  Enables real-time search and analytics on chatbot interactions.
+
+- **AWS Bedrock**: Provides the Foundation Models (Amazon Titan) for embeddings and text generation.
+- **AWS Lambda**: Serverless compute for handling API requests, document processing, and orchestration.
+- **Amazon API Gateway**: Manages REST API endpoints for the frontend.
+- **Amazon S3**: Stores raw uploaded documents and frontend static assets.
+- **Amazon DynamoDB**: Manages user sessions and chat history.
+- **Vector Store**: (Implemented via Lambda/Local or dedicated vector DB) Stores document embeddings for semantic search.
 
 ### Component Design
-- **Frontend Interface**: provides a user-friendly chat interface accessible via web or mobile, communicates with the backend through API Gateway.
-- **API Layer (Amazon API Gateway)**: routes incoming HTTP requests to the appropriate AWS Lambda functions.Integrates with AWS WAF for threat protection and request validation.
-- **Compute Layer (AWS Lambda Functions)**: chat Handler Lambda – Manages user messages, invokes Amazon Bedrock for generating responses, pre-sign Lambda – Generates secure presigned URLs for file uploads to S3, ingestion Lambda – Processes incoming data and stores it in DynamoDB and OpenSearch.
-- **Data Layer**: DynamoDB stores user and conversation data, OpenSearch indexes chat history for efficient search and analytics.
-- **Storage Layer (Amazon S3)**: stores chat-related media, logs, and static website assets.
-- **Edge & Security Layer**: route 53 manages DNS routing, cloudFront accelerates content delivery globally, AWS WAF, KMS, and IAM secure the platform.
-- **Monitoring & Logging**: CloudWatch and CloudTrail monitor Lambda performance, track logs, and audit activity.
-- **CI/CD Pipeline**: CodePipeline, CodeBuild, and CodeDeploy automate build, test, and deployment workflows, CodeArtifact manages dependencies and packages.
+
+- **Frontend**: Hosted on S3 (or Amplify), providing a user-friendly chat interface.
+- **API Layer**: API Gateway routes requests (`/upload`, `/ask`) to Lambda functions.
+- **Processing Layer**: Lambda handles text extraction, calls Bedrock for embeddings, and performs vector similarity search.
+- **AI Layer**: AWS Bedrock generates responses using the retrieved context and user query.
 
 ### 4. Technical Implementation
+
 **Implementation Phases**
 
-This project has two parts—developing the AI Chatbot backend on AWS and building the chatbot web interface—each following 4 phases:
-- Build Theory and Draw Architecture: Research AWS services including Lambda, API Gateway, Bedrock, DynamoDB, and Amplify, and design the complete serverless architecture for chatbot interaction (1 month pre-internship).
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate the monthly cost of all AWS components and adjust configurations for budget efficiency (Month 1).
-- Fix Architecture for Cost or Solution Fit: Optimize the design for performance and cost, such as adjusting Lambda memory/time settings, DynamoDB read/write capacity, or caching Bedrock responses (Month 2).
-- Develop, Test, and Deploy: Implement backend functions using AWS SDK, configure API Gateway and Bedrock integration, develop the React/Next.js chatbot interface, and deploy using AWS Amplify and CodePipeline (Months 2–3).
+- **Phase 1: Foundation (Weeks 1-4)**: Setup AWS environment, Bedrock access, and basic backend logic.
+- **Phase 2: API & Security (Weeks 5-7)**: Develop API Gateway, Lambda functions, and implement CORS/Security.
+- **Phase 3: Frontend Development (Weeks 8-11)**: Build the React/Next.js interface and integrate with APIs.
+- **Phase 4: Testing & Deployment (Weeks 12-14)**: End-to-end testing, optimization, and final deployment.
 
 **Technical Requirements**
-- AI Chatbot Backend: AWS Lambda (Node.js/Python runtime) handles chat processing, integrates with Amazon Bedrock for LLM responses, and connects to DynamoDB for storing user sessions and messages. API Gateway provides REST or WebSocket endpoints for communication.
-- Frontend Web Application: Built with React or Next.js and hosted on AWS Amplify for fast deployment and CI/CD integration. Cognito manages user authentication and secure access.
-- Data Storage and Analytics: DynamoDB stores structured chat data (user info, message history), S3 stores logs and media files, and OpenSearch enables searching and analyzing conversation data.
-- Security and Monitoring: IAM controls access permissions, KMS encrypts sensitive data, WAF protects APIs, CloudWatch monitors Lambda performance, and CloudTrail logs system activities.
-- CI/CD Pipeline: CodePipeline automates the deployment process; CodeBuild builds backend functions; CodeDeploy manages versioned releases; CodeArtifact stores shared dependencies for consistent builds.
+
+- **AI Model**: Amazon Titan (via Bedrock) for Embeddings and Text Generation.
+- **Backend**: Node.js/Python on AWS Lambda.
+- **Infrastructure as Code**: Serverless Framework or AWS CDK.
+- **Frontend**: React.js / Next.js.
 
 ### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for studying AWS AI services, researching Bedrock models, and finalizing architecture design.
-- Internship (Months 1–3): 3 months of main development and deployment.
-- Month 1: Study AWS services in depth (Lambda, API Gateway, Bedrock, DynamoDB, Amplify) and prepare development environment.
-- Month 2: Implement and optimize architecture, integrate AI model via Amazon Bedrock, and test Lambda-API workflows.
-- Month 3: Develop and deploy the chatbot web interface on Amplify, connect to backend, configure CI/CD pipeline (CodePipeline, CodeBuild, CodeDeploy), and finalize system testing.
-- Post-Launch (Up to 1 Year): Continuous monitoring and improvement phase for scalability, feature upgrades, and research on model fine-tuning or custom AI prompt engineering.
+
+- **Month 1**: Architecture Design, AWS Setup, Backend Core (Upload/Embeddings).
+- **Month 2**: RAG Implementation, Vector Search Logic, API Development.
+- **Month 3**: Frontend Integration, UI/UX Polish, Testing, and Launch.
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.20/month (10,000 invocations, 512 MB memory).
-    - Amazon API Gateway: $0.10/month (5,000 API requests).
-    - Amazon Bedrock: $0.40/month (model inference and token usage).
-    - Amazon DynamoDB: $0.15/month (on-demand read/write requests and 2 GB data).
-    - Amazon S3: $0.10/month (3 GB storage and 1,000 requests).
-    - Amazon OpenSearch Service: $0.30/month (small instance for indexing chat logs).
-    - Amazon Amplify: $0.35/month (frontend hosting and build pipeline).
-    - Amazon CloudFront: $0.05/month (content delivery and caching).
-    - Amazon Cognito: $0.02/month (authentication for up to 100 monthly active users).
-    - AWS WAF: $0.05/month (basic rule configuration for API protection).
-    - Amazon CloudWatch & CloudTrail: $0.08/month (logging and monitoring).
+**Estimated Monthly Costs (Low-Medium Usage)**
 
-    Total: $1.8/month, or $21.6/year.
+- **AWS Bedrock (Titan)**: ~$0 (Free Tier / Low cost per 1k tokens)
+- **AWS Lambda**: ~$0.20 per 1M requests
+- **Amazon S3**: ~$0.023 per GB
+- **Amazon DynamoDB**: ~$0.25 per 1M requests
+- **Amazon API Gateway**: ~$3.50 per 1M requests
+
+**Total Estimated**: < **$5.00 / month**
 
 ### 7. Risk Assessment
+
 #### Risk Matrix
-- Service Outages: Medium impact, medium probability.
-- Data Leakage or Security Misconfiguration: High impact, low probability.
-- Cost Overruns due to API or Bedrock Usage: Medium impact, low probability.
-- Model Inaccuracy or Latency: Medium impact, medium probability.
+
+- **Hallucinations (AI Errors)**: Medium Impact, Medium Probability.
+- **Cost Overruns**: Medium Impact, Low Probability (Serverless).
+- **Data Leakage**: High Impact, Low Probability.
 
 #### Mitigation Strategies
-- Service Reliability: Implement multi-region deployment and automatic retries via AWS Lambda.
-- Security: Enforce IAM least-privilege access, encrypt data with KMS, and use AWS WAF and Secrets Manager.
-- Cost Management: Set AWS Budgets and CloudWatch alarms for API and Bedrock usage thresholds.
-- Performance: Cache frequent queries in DynamoDB and use OpenSearch for fast retrieval.
 
-#### Contingency Plans
-- If AWS Bedrock becomes unavailable, switch to an open-source fallback model hosted on EC2 or SageMaker.
-- In case of service disruption, use CloudFormation stacks to redeploy infrastructure quickly.
-- If costs exceed the budget, scale down OpenSearch instances and optimize Lambda execution time.
+- **Hallucinations**: Strict RAG implementation (grounding answers in context).
+- **Cost**: Set AWS Budget Alerts and usage quotas.
+- **Security**: Use Presigned URLs for S3, IAM roles with least privilege.
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-- Delivers real-time conversational responses through fully managed AWS services.
-- Eliminates the need for manual server maintenance and API management.
-- Ensures high scalability, security, and automation via a CI/CD pipeline.
+
+#### Technical Improvements
+
+- Fully automated document analysis pipeline.
+- Sub-second retrieval latency for vector search.
+- Scalable architecture supporting concurrent users.
+
 #### Long-term Value
-- Provides a foundation for future AI-based applications such as recommendation bots or knowledge assistants.
-- Offers a reusable architecture for educational research and enterprise chatbot prototypes.
-- Reduces long-term operational costs by adopting a 100% serverless infrastructure.
+
+- A reusable RAG framework for future knowledge base applications.
+- Significant productivity gains for users needing quick information retrieval.
