@@ -1,3 +1,3 @@
-const countSelector = (state => state.counter.count)
+const userSelector = (state => state.user.listUser)
 
-export default countSelector
+export default userSelector
