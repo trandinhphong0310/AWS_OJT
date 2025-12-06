@@ -1,17 +1,9 @@
 import axios from "axios";
-import { INCREMENT, DECREMENT, FETCH_USERS_ERROR, FETCH_USERS_SUCCESS, FETCH_USERS_REQUEST } from "./types";
-
-export const increaseCounter = () => {
-    return {
-        type: INCREMENT
-    }
-}
-
-export const decreaseCounter = () => {
-    return {
-        type: DECREMENT
-    }
-}
+import {
+    FETCH_USERS_ERROR, FETCH_USERS_SUCCESS, FETCH_USERS_REQUEST,
+    CREATE_USERS_REQUEST, CREATE_USERS_SUCCESS, CREATE_USERS_ERROR,
+    DELETE_USERS_ERROR, DELETE_USERS_REQUEST, DELETE_USERS_SUCCESS
+} from "./types";
 
 export const fetchAllUsers = () => {
     return async (dispatch, getState) => {
@@ -43,5 +35,70 @@ const fetchUsersSuccess = (payload) => {
 const fetchUsersError = () => {
     return {
         type: FETCH_USERS_ERROR,
+    }
+}
+
+const createUsersRequest = () => {
+    return {
+        type: CREATE_USERS_REQUEST,
+    }
+}
+
+const createUsersSuccess = () => {
+    return {
+        type: CREATE_USERS_SUCCESS
+    }
+}
+
+const createUsersError = () => {
+    return {
+        type: CREATE_USERS_ERROR,
+    }
+}
+
+export const createNewUsers = (email, password, username) => {
+    return async (dispatch, getState) => {
+        dispatch(createUsersRequest())
+        try {
+            const res = await axios.post('http://localhost:8080/users/create', { email, password, username })
+            if (res && res.data.errCode === 0) {
+                dispatch(createUsersSuccess())
+                dispatch(fetchAllUsers())
+            }
+        } catch (err) {
+            dispatch(createUsersError())
+        }
+    }
+}
+
+const deleteUsersRequest = () => {
+    return {
+        type: DELETE_USERS_REQUEST,
+    }
+}
+
+const deleteUsersSuccess = () => {
+    return {
+        type: DELETE_USERS_SUCCESS
+    }
+}
+
+const deleteUsersError = () => {
+    return {
+        type: DELETE_USERS_ERROR,
+    }
+}
+
+export const deleteUser = (id) => {
+    return async (dispatch, getState) => {
+        dispatch(deleteUsersRequest())
+        try {
+            const res = await axios.post(`http://localhost:8080/users/delete/${id}`)
+            const data = res && res.data
+            dispatch(deleteUsersSuccess(data))
+        } catch (err) {
+            console.log(err)
+            dispatch(deleteUsersError())
+        }
     }
 }

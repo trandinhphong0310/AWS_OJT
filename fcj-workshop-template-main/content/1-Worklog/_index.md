@@ -28,8 +28,8 @@ Typically, and as a standard, a worklog is carried out over about 3 months (thro
 
 **Week 9:** [Data Pipeline, S3, Glue, Athena & DynamoDB Practice](1.9-week9/)
 
-**Week 10:** [Doing task L...](1.10-week10/)
+**Week 10:** [AWS Security, Automation & Resource Tagging](1.10-week10/)
 
-**Week 11:** [Doing task M...](1.11-week11/)
+**Week 11:** [Serverless, Event Management & Troubleshooting](1.11-week11/)
 
-**Week 12:** [Doing task N...](1.12-week12/)
+**Week 12:** [Security Hub, Webhooks, Tag Management & DynamoDB Practice](1.12-week12/)

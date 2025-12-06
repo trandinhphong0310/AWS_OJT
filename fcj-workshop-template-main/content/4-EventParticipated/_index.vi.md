@@ -35,3 +35,18 @@ pre: " <b> 4. </b> "
 <br> Phần thứ hai giới thiệu Amazon Bedrock cùng các mô hình nền tảng (Claude, Llama, Titan), kỹ thuật prompt engineering, kiến trúc RAG, Bedrock Agents và các tiêu chuẩn an toàn nội dung. Một điểm nhấn của sự kiện là phần demo xây dựng chatbot GenAI dùng Bedrock ngay tại chỗ.
 
 &emsp;**Kết quả đạt được:** Qua sự kiện, em hiểu rõ hơn quy trình xây dựng và triển khai giải pháp AI/ML trên AWS, thành thạo hơn trong prompt engineering và lựa chọn mô hình phù hợp cho từng bài toán. Em cũng học được cách sử dụng SageMaker và Bedrock để xây dựng ứng dụng GenAI thực tế, đồng thời nhận thức sâu hơn về tầm quan trọng của an toàn nội dung và kiểm soát rủi ro trong các hệ thống AI thế hệ mới.
+
+---
+
+### [Event 3](4.3-Event3/)
+&emsp;**Tên sự kiện:** AWS Cloud Mastery Series #3 - Well-Architected Security Pillar
+
+&emsp;**Thời gian:** 08:30 ngày 29/11/2025
+
+&emsp;**Địa điểm:** Tầng 26, tòa nhà Bitexco Financial Tower, số 02 đường Hải Triều, phường Ben Nghe, Quận 1, thành phố Hồ Chí Minh
+
+&emsp;**Vai trò trong sự kiện:** Người tham dự
+
+&emsp;**Mô tả nội dung:** Workshop chuyên sâu về 5 trụ cột bảo mật của AWS Well-Architected Framework: Identity & Access Management, Detection, Infrastructure Protection, Data Protection và Incident Response.
+
+&emsp;**Giá trị đạt được:** Hiểu biết toàn diện về cloud security architecture, thành thạo modern IAM practices với zero-trust principles, kỹ năng implement comprehensive monitoring và automated incident response. 

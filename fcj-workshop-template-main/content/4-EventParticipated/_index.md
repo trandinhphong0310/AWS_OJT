@@ -35,3 +35,18 @@ The workshop enhanced my technical understanding of agentic workflows and AI-pow
 &emsp;**Briefly Description:** The event focused on AWS AI/ML/GenAI services, starting with an overview of the AI/ML landscape in Vietnam, followed by an introduction and live demonstration of Amazon SageMaker—the end-to-end platform for developing and deploying machine learning models. The session covered data preparation, model training, tuning, deployment, and integrated MLOps. The latter part introduced Amazon Bedrock with foundation models (Claude, Llama, Titan), prompt engineering techniques, Retrieval-Augmented Generation (RAG) architecture, Bedrock Agents, and safety measures. A highlight was the live demo of building a Generative AI chatbot using Bedrock.
 
 &emsp;**Outcomes:** Through the event, I gained a clearer understanding of building and deploying AI/ML solutions on AWS, learned new techniques in prompt engineering and RAG, and how to select suitable foundation models. I also learned to use Amazon SageMaker and Bedrock for real-world AI applications, and recognized the importance of safety and content control in next-generation AI systems.
+
+---
+
+### [Event 3](4.3-Event3/)
+&emsp;**Event Name:** AWS Cloud Mastery Series #3 - Well-Architected Security Pillar
+
+&emsp;**Date & Time:** 08:30, November 29, 2025  
+
+&emsp;**Location:** 26th Floor, Bitexco Financial Tower, 02 Hai Trieu Street, Ben Nghe Ward, District 1, Ho Chi Minh City  
+
+&emsp;**Role:** Attendee  
+
+&emsp;**Content Description:** In-depth workshop on the 5 security pillars of AWS Well-Architected Framework: Identity & Access Management, Detection, Infrastructure Protection, Data Protection, and Incident Response.
+
+&emsp;**Value Gained:** Comprehensive understanding of cloud security architecture, mastery of modern IAM practices with zero-trust principles, skills to implement comprehensive monitoring and automated incident response.

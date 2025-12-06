@@ -29,8 +29,8 @@ Thông thường và cũng là tiêu chuẩn, một worklog được thực hi�
 
 **Tuần 9:** [Pipeline dữ liệu, S3, Glue, Athena & DynamoDB](1.9-week9/)
 
-**Tuần 10:** [Làm công việc L...](1.10-week10/)
+**Tuần 10:** [Bảo mật AWS, Tự động hóa & Quản lý Tag tài nguyên](1.10-week10/)
 
-**Tuần 11:** [Làm công việc M...](1.11-week11/)
+**Tuần 11:** [Serverless, Quản lý sự kiện & Xử lý sự cố](1.11-week11/)
 
-**Tuần 12:** [Làm công việc N...](1.12-week12/)
+**Tuần 12:** [Security Hub, Webhooks, Quản lý Tag & Thực hành DynamoDB](1.12-week12/)
