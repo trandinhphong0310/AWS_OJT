@@ -2,7 +2,7 @@ import axios from "axios";
 import {
     FETCH_USERS_ERROR, FETCH_USERS_SUCCESS, FETCH_USERS_REQUEST,
     CREATE_USERS_REQUEST, CREATE_USERS_SUCCESS, CREATE_USERS_ERROR,
-    DELETE_USERS_ERROR, DELETE_USERS_REQUEST, DELETE_USERS_SUCCESS
+    DELETE_USERS_SUCCESS
 } from "./types";
 
 export const fetchAllUsers = () => {
@@ -71,34 +71,22 @@ export const createNewUsers = (email, password, username) => {
     }
 }
 
-const deleteUsersRequest = () => {
-    return {
-        type: DELETE_USERS_REQUEST,
-    }
-}
-
 const deleteUsersSuccess = () => {
     return {
         type: DELETE_USERS_SUCCESS
     }
 }
 
-const deleteUsersError = () => {
-    return {
-        type: DELETE_USERS_ERROR,
-    }
-}
-
 export const deleteUser = (id) => {
     return async (dispatch, getState) => {
-        dispatch(deleteUsersRequest())
         try {
             const res = await axios.post(`http://localhost:8080/users/delete/${id}`)
-            const data = res && res.data
-            dispatch(deleteUsersSuccess(data))
+            if(res && res.data.errCode === 0) {
+                dispatch(deleteUsersSuccess())
+                dispatch(fetchAllUsers())
+            }
         } catch (err) {
             console.log(err)
-            dispatch(deleteUsersError())
         }
     }
 }

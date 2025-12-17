@@ -16,9 +16,8 @@ export default function TableUser() {
     dispatch(fetchAllUsers())
   }, [dispatch])
 
-  const handleDeleteUser = (id) => {
-    dispatch(deleteUser(id))
-    dispatch(fetchAllUsers())
+  const handleDeleteUser = (user) => {
+    dispatch(deleteUser(user.id))
   }
 
   if (isError === true && isLoading === false) {
@@ -112,7 +111,7 @@ export default function TableUser() {
                   </td>
                   <td className="px-6 py-4">
                     <button
-                      onClick={() => handleDeleteUser(user.id)}
+                      onClick={() => handleDeleteUser(user)}
                       className='bg-red-600 px-3 py-2 rounded-xl text-white cursor-pointer hover:bg-red-500 transition-all duration-300ms ease-in-out'
                     >
                       Delete

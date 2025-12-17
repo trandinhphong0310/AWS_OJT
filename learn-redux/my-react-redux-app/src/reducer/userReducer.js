@@ -1,7 +1,7 @@
 import {
     FETCH_USERS_REQUEST, FETCH_USERS_SUCCESS, FETCH_USERS_ERROR,
     CREATE_USERS_REQUEST, CREATE_USERS_ERROR, CREATE_USERS_SUCCESS,
-    DELETE_USERS_ERROR, DELETE_USERS_REQUEST, DELETE_USERS_SUCCESS
+    DELETE_USERS_SUCCESS
 } from "../action/types";
 
 const initState = {
@@ -49,20 +49,10 @@ const userReducer = (state = initState, action) => {
                 ...state,
                 isCreating: false
             }
-        case DELETE_USERS_REQUEST:
-            return {
-                ...state,
-                isDelete: false
-            }
         case DELETE_USERS_SUCCESS:
             return {
                 ...state,
                 isDelete: true
-            }
-        case DELETE_USERS_ERROR:
-            return {
-                ...state,
-                isDelete: false
             }
         default:
             return state
