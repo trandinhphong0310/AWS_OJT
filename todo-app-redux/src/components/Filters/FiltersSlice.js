@@ -1,52 +1,58 @@
 // const initState = {
-//     search: '',
-//     status: 'All',
-//     priority: []
-// }
+//   search: '',
+//   status: 'All',
+//   priorities: [],
+// };
 
 // const filtersReducer = (state = initState, action) => {
-//     switch (action.type) {
-//         case 'filters/searchFilterChange':
-//             return {
-//                 ...state,
-//                 search: action.payload
-//             }
-//         case 'filters/statusFilterChange':
-//             return {
-//                 ...state,
-//                 status: action.payload
-//             }
-//         case 'filters/priorityFilterChange':
-//             return {
-//                 ...state,
-//                 priority: action.payload
-//         }
-//         default:
-//             return state;
-//     }
-// }
+//   switch (action.type) {
+//     case 'filters/searchFilterChange':
+//       return {
+//         ...state,
+//         search: action.payload,
+//       };
 
-// export default filtersReducer
+//     case 'filters/statusFilterChange':
+//       return {
+//         ...state,
+//         status: action.payload
+//       }
 
-import { createSlice } from "@reduxjs/toolkit";
+//     case 'filters/prioritiesFilterChange':
+//       return {
+//         ...state,
+//         priorities: action.payload
+//       }
+//     default:
+//       return state;
+//   }
+// };
+
+// export default filtersReducer;
+
+import { createSlice } from '@reduxjs/toolkit';
 
 export default createSlice({
-    name: "filters",
-    initialState: {
-        search: '',
-        status: 'All',
-        priority: []
+  name: 'filters',
+  initialState: {
+    search: '',
+    status: 'All',
+    priorities: [],
+  },
+  reducers: {
+    searchFilterChange: (state, action) => {
+      // mutation || IMMER
+      state.search = action.payload;
     },
-    reducers: {
-        searchFilterChange: (state, action) => {
-            //mutation (IMMER)
-            state.search = action.payload
-        }, // => type: filters/searchFilterChange
-        statusFilterChange: (state, action) => {
-            state.status = action.payload
-        },
-        priorityFilterChange: (state, action) => {
-            state.priority = action.payload
-        }
-    }
-})
+    statusFilterChange: (state, action) => {
+      state.status = action.payload;
+    },
+    prioritiesFilterChange: (state, action) => {
+      state.priorities = action.payload;
+    },
+    // alias for backwards-compatibility: some code may use singular "priorityFilterChange"
+    priorityFilterChange: (state, action) => {
+      state.priorities = action.payload;
+    },
+  },
+});

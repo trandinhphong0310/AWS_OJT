@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { postLogin } from '../Services/apiServices'
 import { toast } from 'react-toastify'
 import { VscEye, VscEyeClosed } from 'react-icons/vsc'
+import { useDispatch } from 'react-redux'
+import { fetchUserLogin } from '../../redux/reducer/userReducer'
 
 export default function Login() {
 
@@ -11,6 +12,7 @@ export default function Login() {
   const [isShowPassword, setIsShowPassword] = useState(false)
 
   const navigate = useNavigate()
+  const dispatch = useDispatch()
 
   const handleHomePage = () => {
     navigate('/')
@@ -21,14 +23,12 @@ export default function Login() {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    const data = await postLogin(email, password);
-    if (data && data.EC === 0) {
-      toast.success(data.EM)
+    const data = await dispatch(fetchUserLogin({ email, password }));
+    if (fetchUserLogin.fulfilled.match(data) && data.payload.EC === 0) {
+      toast.success(data.payload.EM)
       navigate('/')
-    }
-
-    if (data && data.EC !== 0) {
-      toast.error(data.EM)
+    } else {
+      toast.error(data.payload.EM)
     }
   }
 

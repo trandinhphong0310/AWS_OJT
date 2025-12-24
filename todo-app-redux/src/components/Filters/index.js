@@ -2,31 +2,30 @@ import { Col, Row, Input, Typography, Radio, Select, Tag } from 'antd';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 // import { priorityFilterChange, searchFilterChange, statusFilterChange } from '../../redux/actions';
-import FiltersSlice from './FiltersSlice';
+import filtersSlice from './filtersSlice';
 
 const { Search } = Input;
 
 export default function Filters() {
+  const dispatch = useDispatch();
 
-  const dispatch = useDispatch()
-
-  const [searchText, setSearchText] = useState('')
-  const [filterStatus, setFilterStatus] = useState('All')
-  const [filterPriority, setFilterPriority] = useState([])
+  const [searchText, setSearchText] = useState('');
+  const [filterStatus, setFilterStatus] = useState('All');
+  const [filterPriorities, setFilterPriorities] = useState([]);
 
   const handleSearchTextChange = (e) => {
-    setSearchText(e.target.value)
-    dispatch(FiltersSlice.actions.searchFilterChange(e.target.value))
-  }
+    setSearchText(e.target.value);
+    dispatch(filtersSlice.actions.searchFilterChange(e.target.value));
+  };
 
   const handleStatusChange = (e) => {
-    setFilterStatus(e.target.value)
-    dispatch(FiltersSlice.actions.statusFilterChange(e.target.value))
-  }
+    setFilterStatus(e.target.value);
+    dispatch(filtersSlice.actions.statusFilterChange(e.target.value));
+  };
 
   const handlePriorityChange = (value) => {
-    setFilterPriority(value)
-    dispatch(FiltersSlice.actions.priorityFilterChange(value))
+    setFilterPriorities(value);
+    dispatch(filtersSlice.actions.prioritiesFilterChange(value));
   }
 
   return (
@@ -37,7 +36,11 @@ export default function Filters() {
         >
           Search
         </Typography.Paragraph>
-        <Search placeholder='input search text' value={searchText} onChange={handleSearchTextChange}/>
+        <Search
+          placeholder='input search text'
+          value={searchText}
+          onChange={handleSearchTextChange}
+        />
       </Col>
       <Col sm={24}>
         <Typography.Paragraph
@@ -62,7 +65,7 @@ export default function Filters() {
           allowClear
           placeholder='Please select'
           style={{ width: '100%' }}
-          value={filterPriority}
+          value={filterPriorities}
           onChange={handlePriorityChange}
         >
           <Select.Option value='High' label='High'>
